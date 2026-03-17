@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,10 +7,16 @@
 @layer base {
   :root {
     --button-ripple-color: rgba(124, 58, 237, 0.5); /* vyra-violet default */
+    --vyra-black: #0B1020;
+    --ice-white: #F8FAFC;
+    --glow-cyan: #22D3EE;
   }
 
   body {
     @apply bg-ice-white text-vyra-black font-sans antialiased overflow-x-hidden;
+    /* Soft premium text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -31,9 +37,18 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 50;
-  opacity: 0.03;
+  z-index: 9999;
+  opacity: 0.2; /* Adjusted for Vyra premium feel */
   mix-blend-mode: overlay;
+}
+
+/* Premium glassmorphism */
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+}
+
+.glass-panel-light {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm;
 }
 
 /* Premium smooth shadows */
