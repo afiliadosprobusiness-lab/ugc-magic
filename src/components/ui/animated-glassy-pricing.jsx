@@ -38,11 +38,20 @@ const ShaderCanvas = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const gl = canvas.getContext('webgl');
-    if (!gl) { console.error("WebGL not supported"); return; }
+
+    let gl;
+    try {
+      gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    } catch (e) {
+      return;
+    }
+    
+    if (!gl) return;
+
     glRef.current = gl;
 
-    const vertexShaderSource = `attribute vec2 aPosition; void main() { gl_Position = vec4(aPosition, 0.0, 1.0); }`;
+    try {
+      const vertexShaderSource = `attribute vec2 aPosition; void main() { gl_Position = vec4(aPosition, 0.0, 1.0); }`;
     const fragmentShaderSource = `
       precision highp float;
       uniform float iTime;
@@ -126,6 +135,10 @@ const ShaderCanvas = () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
+    } catch (err) {
+      // Silently fail on WebGL issues; gracefully fallback to CSS backgrounds
+      return;
+    }
   }, []);
 
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full block z-0 opacity-20 pointer-events-none" />;
