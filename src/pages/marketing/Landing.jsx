@@ -12,7 +12,7 @@ import Footer from '../../components/marketing/Footer';
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-vyra-black text-white selection:bg-glow-cyan/30">
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-vyra-black text-white selection:bg-glow-cyan/30">
       <Navbar />
       <main>
         <Hero />
