@@ -8,8 +8,6 @@ export const Button = React.forwardRef(({
   variant = 'default',
   size = 'default',
   asChild = false,
-  variant = 'default',
-  size = 'default',
   isLoading = false,
   children,
   ...props
