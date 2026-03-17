@@ -1,43 +1,58 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { ParallaxScrollSecond } from '../ui/parallax-scroll';
+import { BatteryCharging, CheckCircle2, ShieldAlert } from 'lucide-react';
 
 export default function Benefits() {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
-  const images = [
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=800", 
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1611558709798-e009c8fd7706?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1512496015851-a908f888f9ea?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1579724131652-9d338cedf135?auto=format&fit=crop&q=80&w=800",
+  const benefits = [
+    {
+      title: 'The End of Creative Burnout',
+      desc: 'No more chasing creators. Scale your visual output without scaling your headcount.',
+      icon: BatteryCharging,
+      color: 'text-glow-cyan'
+    },
+    {
+      title: 'Zero-friction Revisions',
+      desc: 'Our engine guarantees alignment with your initial brief. Revisions drop to near zero.',
+      icon: CheckCircle2,
+      color: 'text-electric-blue'
+    },
+    {
+      title: 'Brand Safety Guaranteed',
+      desc: 'Every creator is vetted, and every asset strictly adheres to your brand guidelines.',
+      icon: ShieldAlert,
+      color: 'text-vyra-violet'
+    }
   ];
 
   return (
-    <section className="bg-vyra-black relative z-20 py-32 overflow-hidden border-t border-white/5">
-       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-electric-blue/5 blur-[120px] rounded-[100%] pointer-events-none" />
+    <section className="bg-vyra-black relative z-20 py-32 overflow-hidden border-b border-white/5">
+       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-glow-cyan/5 blur-[120px] rounded-full pointer-events-none" />
 
-       <div className="text-center mb-16 max-w-4xl mx-auto px-6 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-6">
-              {t('benefits.title')}
-          </h2>
-          <h3 className="text-lg md:text-2xl font-medium tracking-tight text-white/50 text-balance">
-              {t('cases.title')}
-          </h3>
-       </div>
+       <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-sm md:text-base font-mono uppercase tracking-[0.2em] text-glow-cyan font-semibold mb-4">
+              WHY VYRA
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
+              {language === 'en' ? 'Built for scale.' : 'Construido para escalar.'}
+            </h3>
+          </div>
 
-       <div className="w-full relative z-10 flex justify-center">
-          <ParallaxScrollSecond images={images} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="glass-panel p-8 rounded-[24px] border border-white/10 hover:border-white/20 transition-colors group">
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <benefit.icon className={"w-6 h-6 " + benefit.color} />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-3">{benefit.title}</h4>
+                <p className="text-white/50 leading-relaxed text-sm">
+                  {benefit.desc}
+                </p>
+              </div>
+            ))}
+          </div>
        </div>
     </section>
   );
