@@ -3,7 +3,7 @@ import { Card } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { MOCK_METRICS, MOCK_REQUESTS } from '../../data/mock';
+import { MOCK_REQUESTS } from '../../data/mock';
 import { FileImage, Activity, PlaySquare, ArrowRight, Upload, Layers, SlidersHorizontal, Sparkles, Box, Target, Clock, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 

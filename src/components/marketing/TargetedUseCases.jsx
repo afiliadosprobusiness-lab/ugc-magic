@@ -72,16 +72,16 @@ export default function TargetedUseCases() {
                 <button
                   key={useCase.id}
                   onClick={() => setActiveTab(idx)}
-                  className={\`flex items-center justify-between p-6 rounded-2xl border transition-all text-left w-full \${
+                  className={`flex items-center justify-between p-6 rounded-2xl border transition-all text-left w-full ${
                     activeTab === idx 
                       ? 'bg-white/10 border-electric-blue/50 shadow-[0_0_20px_rgba(59,130,246,0.15)]' 
                       : 'bg-transparent border-white/5 hover:bg-white/5 hover:border-white/10'
-                  }\`}
+                  }`}
                 >
-                  <span className={\`text-xl font-semibold \${activeTab === idx ? 'text-white' : 'text-white/50'}\`}>
+                  <span className={`text-xl font-semibold ${activeTab === idx ? 'text-white' : 'text-white/50'}`}>
                     {useCase.label}
                   </span>
-                  <div className={\`w-2 h-2 rounded-full transition-all \${activeTab === idx ? 'bg-electric-blue shadow-[0_0_10px_#3B82F6]' : 'bg-transparent'}\`} />
+                  <div className={`w-2 h-2 rounded-full transition-all ${activeTab === idx ? 'bg-electric-blue shadow-[0_0_10px_#3B82F6]' : 'bg-transparent'}`} />
                 </button>
               ))}
             </div>
