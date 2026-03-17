@@ -19,12 +19,11 @@ export function NavBar({ items, className }) {
   return (
     <div
       className={cn(
-        // Positioning it at the top for both mobile and PC, centered.
-        "fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-2",
+        "fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4",
         className,
       )}
     >
-      <div className="flex items-center justify-center gap-1 sm:gap-3 bg-[#0B1020]/90 border border-white/10 backdrop-blur-[12px] py-1 px-1 rounded-full shadow-lg shadow-black/50 overflow-x-auto no-scrollbar">
+      <div className="pointer-events-auto flex items-center justify-start gap-1 sm:gap-2 bg-[#0B1020]/90 border border-white/10 backdrop-blur-[12px] p-1.5 rounded-full shadow-lg shadow-black/50 overflow-x-auto no-scrollbar max-w-full">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -37,7 +36,7 @@ export function NavBar({ items, className }) {
                 if (item.onClick) item.onClick()
               }}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-3 sm:px-5 py-2 rounded-full transition-colors flex items-center justify-center shrink-0",
+                "relative cursor-pointer text-[13px] sm:text-sm font-semibold px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-colors flex items-center justify-center shrink-0",
                 "text-white/70 hover:text-white",
                 isActive && "text-glow-cyan bg-white/5",
               )}
