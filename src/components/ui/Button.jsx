@@ -1,9 +1,13 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 import { Loader2 } from 'lucide-react';
+import { Slot } from '@radix-ui/react-slot';
 
 export const Button = React.forwardRef(({
   className,
+  variant = 'default',
+  size = 'default',
+  asChild = false,
   variant = 'default',
   size = 'default',
   isLoading = false,
@@ -27,8 +31,10 @@ export const Button = React.forwardRef(({
     icon: "h-10 w-10",
   };
 
+  const Comp = asChild ? Slot : "button";
+
   return (
-    <button
+    <Comp
       ref={ref}
       className={cn(baseStyles, variants[variant], sizes[size], className)}
       disabled={isLoading}
@@ -36,7 +42,7 @@ export const Button = React.forwardRef(({
     >
       {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
       {children}
-    </button>
+    </Comp>
   );
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { NavBar } from '../ui/tubelight-navbar';
+import { ExpandableTabs } from '../ui/expandable-tabs';
 import { 
   Home, 
   Sparkles, 
@@ -22,15 +22,24 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { icon: Home, name: "Home", onClick: () => navigate('/') },
-    { icon: Sparkles, name: t('nav.benefits', {defaultValue: "Benefits"}), onClick: () => { window.location.hash = '#benefits' } },
-    { icon: Layers, name: t('nav.howItWorks', {defaultValue: "How it works"}), onClick: () => { window.location.hash = '#how-it-works' } },
-    { icon: CreditCard, name: t('nav.plans', {defaultValue: "Plans"}), onClick: () => { window.location.hash = '#plans' } },
-    { icon: Crown, name: t('nav.premium', {defaultValue: "Premium"}), onClick: () => { window.location.hash = '#premium' } },
-    { icon: TrendingUp, name: t('nav.results', {defaultValue: "Results"}), onClick: () => { window.location.hash = '#results' } },
-    { icon: Globe, name: language.toUpperCase(), onClick: toggleLanguage },
-    { icon: User, name: t('nav.login', {defaultValue: "Login"}), onClick: () => navigate('/login') },
+    { icon: Home, title: "Home", onClick: () => navigate('/') },
+    { type: "separator" },
+    { icon: Sparkles, title: t('nav.benefits', {defaultValue: "Benefits"}), onClick: () => { window.location.hash = '#benefits' } },
+    { icon: Layers, title: t('nav.howItWorks', {defaultValue: "How it works"}), onClick: () => { window.location.hash = '#how-it-works' } },
+    { icon: CreditCard, title: t('nav.plans', {defaultValue: "Plans"}), onClick: () => { window.location.hash = '#plans' } },
+    { type: "separator" },
+    { icon: Crown, title: t('nav.premium', {defaultValue: "Premium"}), onClick: () => { window.location.hash = '#premium' } },
+    { icon: TrendingUp, title: t('nav.results', {defaultValue: "Results"}), onClick: () => { window.location.hash = '#results' } },
+    { type: "separator" },
+    { icon: Globe, title: language.toUpperCase(), onClick: toggleLanguage },
+    { icon: User, title: t('nav.login', {defaultValue: "Login"}), onClick: () => navigate('/login') },
   ];
 
-  return <NavBar items={navItems} />;
+  return (
+    <div className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-2 sm:px-4 w-full">
+      <div className="pointer-events-auto max-w-[100vw] overflow-x-auto no-scrollbar">
+        <ExpandableTabs tabs={navItems} />
+      </div>
+    </div>
+  );
 }
