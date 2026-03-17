@@ -18,7 +18,7 @@ export function NavBar({ items, className }) {
   return (
     <div
       className={cn(
-        "fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-none w-full max-w-[100vw] px-2 md:px-4",
+        "fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-none w-max max-w-[100vw] px-2 md:px-4",
         className,
       )}
     >
