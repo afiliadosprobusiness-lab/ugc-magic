@@ -12,18 +12,17 @@ export function NavBar({ items, className }) {
     }
 
     handleResize()
-    window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return (
     <div
       className={cn(
-        "fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none px-4",
+        "fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-none w-full max-w-[100vw] px-2 md:px-4",
         className,
       )}
     >
-      <div className="pointer-events-auto flex items-center justify-start gap-1 sm:gap-2 bg-[#0B1020]/90 border border-white/10 backdrop-blur-[12px] p-1.5 rounded-full shadow-lg shadow-black/50 overflow-x-auto no-scrollbar max-w-full">
+      <div className="pointer-events-auto flex items-center justify-start gap-1 sm:gap-2 bg-[#0B1020]/90 border border-white/10 backdrop-blur-[12px] p-1.5 rounded-[100px] shadow-lg shadow-black/50 overflow-x-auto no-scrollbar max-w-full">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
