@@ -1,19 +1,23 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import { SidebarProvider, SidebarInset } from '../blocks/sidebar';
+import { VyraAppSidebar } from './VyraAppSidebar';
 import Topbar from './Topbar';
 
 export default function AppLayout() {
   return (
-    <div className="min-h-screen flex bg-ice-white relative scroll-smooth text-vyra-black max-w-[100vw] overflow-x-hidden">
-      <Sidebar />
-      <div className="flex-1 flex flex-col min-w-0">
-        <Topbar />
-        {/* Main Content Area */}
-        <main className="flex-1 p-6 md:p-10 max-w-[1400px] w-full mx-auto relative z-10">
-          <Outlet />
-        </main>
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full bg-ice-white text-vyra-black overflow-hidden relative">
+        <VyraAppSidebar />
+        
+        <SidebarInset className="flex w-full flex-col overflow-hidden bg-ice-white/50">
+          <Topbar />
+          
+          <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-8 max-w-[1600px] w-full mx-auto relative z-10">
+            <Outlet />
+          </main>
+        </SidebarInset>
       </div>
-    </div>
+    </SidebarProvider>
   );
 }

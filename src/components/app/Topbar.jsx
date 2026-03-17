@@ -1,67 +1,75 @@
 import React from 'react';
+import { Search, Bell, Globe, Plus } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
-import { Search, Bell, Globe, Plus, ChevronDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { SidebarTrigger } from '../blocks/sidebar';
 
 export default function Topbar() {
-  const { t, language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const navigate = useNavigate();
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'es' : 'en');
+  };
+
   return (
-    <header className="h-16 border-b border-soft-gray bg-white flex items-center justify-between px-6 sticky top-0 z-40">
-      
-      {/* Search & Workspace */}
-      <div className="flex items-center gap-6 flex-1">
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-soft-gray cursor-pointer hover:border-gray-400 transition-colors">
-          <div className="w-5 h-5 rounded bg-gradient-to-br from-indigo-500 to-purple-500" />
-          <span className="text-sm font-medium">Acme Skincare</span>
-          <ChevronDown className="w-4 h-4 text-gray-400" />
-        </div>
+    <header className="sticky top-0 z-40 bg-ice-white/80 backdrop-blur-md border-b border-soft-gray/50 h-16 flex items-center justify-between px-4 sm:px-6">
+      <div className="flex items-center gap-4">
+        <SidebarTrigger className="hover:bg-soft-gray p-2 rounded-md transition-colors" />
         
-        <div className="relative w-full max-w-sm hidden md:block">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <Input 
-            type="text" 
-            placeholder="Search assets, requests..." 
-            className="pl-9 bg-ice-white border-transparent focus-visible:bg-white" 
-          />
+        {/* Workspace selector mock */}
+        <div className="hidden md:flex items-center gap-2 cursor-pointer hover:bg-white px-3 py-1.5 rounded-lg border border-transparent hover:border-soft-gray transition-all">
+          <div className="w-6 h-6 rounded bg-gradient-to-br from-vyra-violet to-electric-blue flex flex-col items-center justify-center text-white text-xs font-bold">
+            A
+          </div>
+          <span className="font-medium text-sm text-vyra-black">Auren Skin</span>
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="flex items-center gap-4">
-        <button 
-          onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-          className="hidden md:flex items-center gap-1.5 text-sm text-gray-500 hover:text-vyra-violet transition-colors px-2 py-1 rounded-md"
-        >
-          <Globe className="w-4 h-4" />
-          <span className="uppercase font-medium">{language}</span>
-        </button>
-        
-        <button className="relative p-2 text-gray-500 hover:text-vyra-black hover:bg-soft-gray rounded-full transition-colors">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-vyra-violet rounded-full border border-white" />
-        </button>
-        
-        <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 ml-2 overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" className="w-full h-full object-cover" />
+      <div className="flex items-center gap-3 sm:gap-4 flex-1 justify-end">
+        {/* Search */}
+        <div className="relative hidden md:block max-w-sm w-full mx-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+          <Input 
+            type="search" 
+            placeholder={t('app.search')} 
+            className="w-full pl-9 h-9 rounded-full bg-white border-soft-gray focus-visible:ring-electric-blue focus-visible:border-electric-blue text-vyra-black placeholder:text-gray-400"
+          />
         </div>
-        
-        <div className="w-px h-6 bg-soft-gray mx-2" />
-        
+
+        {/* Global actions */}
+        <button className="relative p-2 text-gray-500 hover:text-vyra-black hover:bg-white rounded-full transition-colors">
+          <Bell className="h-5 w-5" />
+          <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-vyra-violet ring-2 ring-ice-white"></span>
+        </button>
+
+        <button 
+          onClick={toggleLanguage}
+          className="p-2 text-gray-500 hover:text-vyra-black hover:bg-white rounded-full transition-colors flex items-center gap-1"
+          title="Toggle Language"
+        >
+          <Globe className="h-5 w-5" />
+          <span className="text-xs font-bold uppercase hidden sm:inline-block">{language}</span>
+        </button>
+
+        {/* User dropdown mock */}
+        <div className="h-8 w-8 rounded-full bg-slate-core text-white flex items-center justify-center font-bold text-sm cursor-pointer ring-2 ring-white ml-1">
+          K
+        </div>
+
+        {/* Main CTA */}
         <Button 
           variant="primary" 
           size="sm" 
-          className="gap-2 shadow-vyra-violet/20"
+          className="ml-2 hidden sm:flex"
           onClick={() => navigate('/app/requests/new')}
         >
-          <Plus className="w-4 h-4" />
-          <span className="hidden sm:inline-block">{t('app.createRequest')}</span>
+          <Plus className="h-4 w-4 mr-1" />
+          {t('nav.createRequest')}
         </Button>
       </div>
-
     </header>
   );
 }
