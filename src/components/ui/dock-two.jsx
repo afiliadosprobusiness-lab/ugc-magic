@@ -33,7 +33,7 @@ const DockIconButton = React.forwardRef(
       >
         <Icon className="w-5 h-5 md:w-5 md:h-5 text-white/80 group-hover:text-glow-cyan transition-colors" />
         <span className={cn(
-          "absolute -top-10 md:-top-auto md:-bottom-10 left-1/2 -translate-x-1/2",
+          "absolute -bottom-10 left-1/2 -translate-x-1/2",
           "px-2 py-1 rounded text-[10px] md:text-xs font-medium",
           "bg-[#0B1020] border border-white/10 text-white shadow-lg",
           "opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100",
@@ -50,7 +50,7 @@ DockIconButton.displayName = "DockIconButton";
 const Dock = React.forwardRef(
   ({ items, className }, ref) => {
     return (
-      <div ref={ref} className={cn("fixed bottom-4 md:bottom-auto md:top-6 left-0 w-full z-50 flex items-center justify-center pointer-events-none px-4", className)}>
+      <div ref={ref} className={cn("fixed top-4 md:top-6 left-0 w-full z-50 flex items-center justify-center pointer-events-none px-4", className)}>
         <motion.div
           initial="initial"
           animate="animate"
