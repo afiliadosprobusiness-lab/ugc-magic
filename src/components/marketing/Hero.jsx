@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { WebGLShader } from '../ui/web-gl-shader';
+import { AntiGravityCanvas } from '../ui/particle-effect-for-hero';
 import { LiquidButton } from '../ui/liquid-glass-button';
 
 export default function Hero() {
@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black pt-20">
       {/* Background Shader */}
-      <WebGLShader />
+      <AntiGravityCanvas />
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col items-center">

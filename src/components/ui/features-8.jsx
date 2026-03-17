@@ -33,12 +33,12 @@ export function Features8() {
                             <svg className="m-auto h-fit w-24" viewBox="0 0 212 143" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     className="text-white/20 group-hover:text-glow-cyan/30 transition-colors"
-                                    d="M44.0209 55.3542C...141.417 128.135Z"
+                                    d="M44 55C44 55 100 100 141 128Z"
                                     fill="currentColor"
                                 />
                                 <g clipPath="url(#clip0_0_1)">
                                     <path
-                                        d="M44.0209 55.3542C...141.417 128.135Z"
+                                        d="M44 55C44 55 100 100 141 128Z"
                                         fill="url(#paint0_linear_0_1)"
                                     />
                                 </g>
@@ -71,7 +71,7 @@ export function Features8() {
                                     <circle className="text-white/20 group-hover:text-vyra-violet/40 transition-colors" cx="29" cy="29" r="15" fill="currentColor" />
                                     <path d="M29 23V35" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M35 29L29 35L23 29" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M55.2373 32H58...367.254 34.167Z" fill="currentColor" />
+                                    <path d="M55 32H367V34H55Z" fill="currentColor" />
                                 </g>
                                 <path
                                     className="text-vyra-violet"
@@ -118,7 +118,7 @@ export function Features8() {
                             <svg className="w-full sm:w-[150%] text-white/5" viewBox="0 0 366 231" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     className="text-white/20 group-hover:text-glow-cyan/50 transition-colors"
-                                    d="M1 179.796L4....365 89.7556"
+                                    d="M1 179L365 89"
                                     stroke="currentColor"
                                     strokeWidth="2"
                                 />

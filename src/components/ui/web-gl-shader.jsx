@@ -52,9 +52,14 @@ export function WebGLShader() {
 
     const initScene = () => {
       refs.scene = new THREE.Scene()
-      refs.renderer = new THREE.WebGLRenderer({ canvas, alpha: true }) // Added alpha for transparency blending if needed
-      refs.renderer.setPixelRatio(window.devicePixelRatio)
-      refs.renderer.setClearColor(new THREE.Color(0x000000), 1)
+      try {
+        refs.renderer = new THREE.WebGLRenderer({ canvas, alpha: true }) // Added alpha for transparency blending if needed
+        refs.renderer.setPixelRatio(window.devicePixelRatio)
+        refs.renderer.setClearColor(new THREE.Color(0x000000), 1)
+      } catch (err) {
+        console.warn("WebGL not supported or context creation failed:", err)
+        return // bail out, leave canvas blank
+      }
 
       refs.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1)
 
