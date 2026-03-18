@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from './button'; 
+import { Button } from './Button'; 
 import { cn } from '../../lib/utils'; 
 
 export const HeroSection = React.forwardRef(
