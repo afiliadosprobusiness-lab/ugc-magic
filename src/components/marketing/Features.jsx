@@ -1,131 +1,166 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Terminal, CheckCircle2, Network, ArrowRight } from 'lucide-react';
+import { Terminal, Database, PlayCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function Features() {
   const { language } = useLanguage();
-  
-  // Typewriter effect state
-  const [typedText, setTypedText] = useState('');
-  const fullText = "const request = new Vyra.Production({\n  brand: 'Auren Skin',\n  format: '9:16 UGC Hook',\n  consistency: 0.98\n});\n\nawait request.deploy();";
-  
-  useEffect(() => {
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < fullText.length) {
-        setTypedText(prev => prev + fullText.charAt(i));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-        setTimeout(() => { i = 0; setTypedText(''); }, 3000); // Loop
-      }
-    }, 50);
-    return () => clearInterval(typingInterval);
-  }, []);
 
   return (
-    <section className="py-32 bg-vyra-black text-white relative overflow-hidden border-b border-white/5">
+    <section className="py-32 bg-[#0B1020] relative z-10 border-b border-white/5 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] bg-vyra-violet/5 blur-[150px] rounded-full pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        <div className="text-center mb-20">
-          <h2 className="text-sm md:text-base font-mono uppercase tracking-[0.2em] text-glow-cyan font-semibold mb-4">
-            MICRO-INTERACTIONS
+        {/* Header */}
+        <div className="text-center mb-24 relative">
+          <h2 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-vyra-violet font-semibold mb-6 inline-block bg-vyra-violet/10 px-4 py-1.5 rounded-full border border-vyra-violet/20">
+            {language === 'en' ? 'HOW IT WORKS' : 'CÓMO FUNCIONA'}
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-            Production as Code.
+          <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-8">
+            {language === 'en' ? 'From loose references to' : 'De referencias sueltas a'} <br className="hidden md:block"/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-vyra-violet to-glow-cyan">
+              {language === 'en' ? 'consistent production.' : 'producción consistente.'}
+            </span>
           </h3>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
-            Experience the precision of Vyra Studio's core mechanics.
+          <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+            {language === 'en' 
+              ? 'Vyra turns simple inputs into a clear system to produce content with direction, consistency, and speed.' 
+              : 'Vyra convierte inputs simples en un sistema claro para producir contenido con dirección, consistencia y velocidad.'}
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          {/* 1. Telemetry / Typewriter */}
-          <div className="glass-panel p-8 rounded-3xl flex flex-col h-[400px] group border-t border-t-white/10 hover:border-glow-cyan/50 transition-colors">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-glow-cyan/10 flex items-center justify-center text-glow-cyan">
-                <Terminal className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold">1. The Setup</h4>
-            </div>
-            <p className="text-sm text-white/50 mb-8">Structured parameters replace chaotic email briefs.</p>
+        {/* 3-Step Flow */}
+        <div className="relative mt-20">
+          
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-[28px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent z-0" />
+          <div className="hidden lg:block absolute top-[28px] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-glow-cyan/40 to-transparent z-0 w-1/3 animate-[pulse_3s_ease-in-out_infinite]" />
+
+          <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 relative z-10">
             
-            <div className="flex-1 bg-[#0c101c] rounded-2xl p-6 font-mono text-[11px] md:text-xs leading-relaxed overflow-hidden border border-white/5 shadow-inner relative">
-              <div className="absolute top-2 left-2 flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-red-400/50" />
-                <div className="w-2 h-2 rounded-full bg-yellow-400/50" />
-                <div className="w-2 h-2 rounded-full bg-green-400/50" />
-              </div>
-              <div className="mt-4 text-glow-cyan opacity-90 whitespace-pre">
-                {typedText}
-                <span className="animate-pulse ml-1 inline-block w-1 h-3 bg-white" />
-              </div>
-            </div>
-          </div>
+            {/* Step 1 */}
+            <div className="relative group">
+              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                
+                <div className="w-14 h-14 rounded-2xl bg-[#111625] border border-white/10 flex items-center justify-center mb-8 relative z-10 shadow-xl group-hover:border-glow-cyan/50 transition-colors duration-500">
+                  <div className="absolute inset-0 bg-glow-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="font-mono text-xl text-glow-cyan font-bold">01</span>
+                </div>
+                
+                <h4 className="text-2xl font-bold text-white mb-3">
+                  {language === 'en' ? 'Clear inputs from the start' : 'Inputs claros desde el inicio'}
+                </h4>
+                <p className="text-white/50 text-sm mb-10 min-h-[60px]">
+                  {language === 'en' ? 'Upload simple references and define the context without ambiguity.' : 'Sube referencias simples y define el contexto sin ambigüedad.'}
+                </p>
 
-          {/* 2. The Vault / Compare */}
-          <div className="glass-panel p-8 rounded-3xl flex flex-col h-[400px] group border-t border-t-white/10 hover:border-electric-blue/50 transition-colors">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-electric-blue/10 flex items-center justify-center text-electric-blue">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold">2. The Vault</h4>
-            </div>
-            <p className="text-sm text-white/50 mb-8">Visual proof of execution. Raw vs Final Cut.</p>
-            
-            <div className="flex-1 rounded-2xl overflow-hidden border border-white/5 relative group/compare cursor-ew-resize">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center" />
-              <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono border border-white/10 z-10">Raw Footage</div>
-              
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center transition-all duration-500 w-[10%] group-hover/compare:w-[90%] border-r-2 border-electric-blue shadow-[5px_0_15px_rgba(0,0,0,0.5)] z-20">
-                <div className="absolute top-2 left-2 bg-electric-blue/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-mono border border-white/10 text-white whitespace-nowrap">Vyra Cut</div>
-              </div>
-            </div>
-          </div>
+                {/* UI Box 1 */}
+                <div className="w-full bg-[#111625] border border-white/5 rounded-2xl p-5 shadow-2xl relative overflow-hidden h-[160px] transform transition-transform duration-500 group-hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1020]/80 z-10 pointer-events-none" />
+                  <div className="text-[10px] text-white/30 font-mono uppercase tracking-widest mb-4">Input Deck</div>
+                  
+                  <div className="space-y-3 relative z-0 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-white/5 border border-white/10 rounded-lg p-3 flex items-center gap-3">
+                      <div className="w-6 h-6 rounded bg-glow-cyan/20 flex items-center justify-center">
+                        <Terminal className="w-3 h-3 text-glow-cyan" />
+                      </div>
+                      <div className="h-2 w-24 bg-white/20 rounded-full" />
+                    </div>
+                     <div className="bg-white/5 border border-white/10 rounded-lg p-3 flex items-center gap-3 ml-4">
+                      <div className="w-4 h-4 rounded-full border border-white/20" />
+                      <div className="h-2 w-16 bg-white/10 rounded-full" />
+                    </div>
+                  </div>
+                </div>
 
-          {/* 3. The Network / Orbit */}
-          <div className="glass-panel p-8 rounded-3xl flex flex-col h-[400px] group border-t border-t-white/10 hover:border-vyra-violet/50 transition-colors">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-vyra-violet/10 flex items-center justify-center text-vyra-violet">
-                <Network className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold">3. The Network</h4>
-            </div>
-            <p className="text-sm text-white/50 mb-8">Vetted creators mapped directly to your brand tone.</p>
-            
-            <div className="flex-1 bg-[#0c101c] rounded-2xl border border-white/5 relative flex items-center justify-center overflow-hidden">
-              <style dangerouslySetInnerHTML={{__html: `
-                @keyframes orbit { from { transform: rotate(0deg) translateX(70px) rotate(0deg); } to { transform: rotate(360deg) translateX(70px) rotate(-360deg); } }
-                @keyframes orbit2 { from { transform: rotate(120deg) translateX(70px) rotate(-120deg); } to { transform: rotate(480deg) translateX(70px) rotate(-480deg); } }
-                @keyframes orbit3 { from { transform: rotate(240deg) translateX(70px) rotate(-240deg); } to { transform: rotate(600deg) translateX(70px) rotate(-600deg); } }
-                .orbit-1 { animation: orbit 8s linear infinite; }
-                .orbit-2 { animation: orbit2 8s linear infinite; }
-                .orbit-3 { animation: orbit3 8s linear infinite; }
-              `}} />
-              
-              {/* Center */}
-              <div className="w-12 h-12 rounded-xl bg-vyra-black border border-white/10 flex items-center justify-center z-20 shadow-[0_0_20px_rgba(124,58,237,0.3)]">
-                <span className="font-bold text-white">V</span>
-              </div>
-              
-              {/* Orbits */}
-              <div className="absolute w-[140px] h-[140px] rounded-full border border-dashed border-white/10 z-10" />
-              
-              {/* Nodes */}
-              <div className="absolute orbit-1 z-30">
-                <img src="https://i.pravatar.cc/150?u=a1" className="w-8 h-8 rounded-full border-2 border-vyra-violet grayscale hover:grayscale-0 transition-all" alt="Creator 1" />
-              </div>
-              <div className="absolute orbit-2 z-30">
-                <img src="https://i.pravatar.cc/150?u=a2" className="w-8 h-8 rounded-full border-2 border-electric-blue grayscale hover:grayscale-0 transition-all" alt="Creator 2" />
-              </div>
-              <div className="absolute orbit-3 z-30">
-                <img src="https://i.pravatar.cc/150?u=a3" className="w-8 h-8 rounded-full border-2 border-glow-cyan grayscale hover:grayscale-0 transition-all" alt="Creator 3" />
               </div>
             </div>
-          </div>
 
+            {/* Step 2 */}
+            <div className="relative group">
+              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                
+                <div className="w-14 h-14 rounded-2xl bg-[#111625] border border-white/10 flex items-center justify-center mb-8 relative z-10 shadow-xl group-hover:border-vyra-violet/50 transition-colors duration-500">
+                  <div className="absolute inset-0 bg-vyra-violet/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="font-mono text-xl text-vyra-violet font-bold">02</span>
+                </div>
+                
+                <h4 className="text-2xl font-bold text-white mb-3">
+                  {language === 'en' ? 'Direction that doesn\'t warp' : 'Dirección que no se deforma'}
+                </h4>
+                <p className="text-white/50 text-sm mb-10 min-h-[60px]">
+                  {language === 'en' ? 'The system structures creative decisions to maintain consistency.' : 'El sistema estructura decisiones creativas para mantener consistencia visual.'}
+                </p>
+
+                {/* UI Box 2 */}
+                <div className="w-full bg-[#111625] border border-white/5 rounded-2xl p-5 shadow-2xl relative overflow-hidden h-[160px] transform transition-transform duration-500 group-hover:-translate-y-2">
+                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1020]/80 z-10 pointer-events-none" />
+                   <div className="text-[10px] text-white/30 font-mono uppercase tracking-widest mb-4">Vyra Core</div>
+                   
+                   <div className="relative z-0 opacity-70 group-hover:opacity-100 transition-opacity font-mono text-xs">
+                     <div className="text-vyra-violet border-l-2 border-vyra-violet/50 pl-3 py-1 bg-vyra-violet/5 mb-2">
+                       "angle": "pain_point",
+                     </div>
+                     <div className="text-glow-cyan border-l-2 border-glow-cyan/50 pl-3 py-1 bg-glow-cyan/5 mb-2 ml-2">
+                       "creator_match": 0.98,
+                     </div>
+                     <div className="text-white/60 border-l-2 border-white/20 pl-3 py-1 bg-white/5 ml-4 flex items-center gap-2">
+                       "status": <span className="bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded text-[8px]">ACTIVE</span>
+                     </div>
+                   </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative group">
+              <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                
+                <div className="w-14 h-14 rounded-2xl bg-[#111625] border border-white/10 flex items-center justify-center mb-8 relative z-10 shadow-xl group-hover:border-white/50 transition-colors duration-500">
+                  <div className="absolute inset-0 bg-white/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="font-mono text-xl text-white font-bold">03</span>
+                </div>
+                
+                <h4 className="text-2xl font-bold text-white mb-3">
+                  {language === 'en' ? 'Output ready to use' : 'Output listo para usar'}
+                </h4>
+                <p className="text-white/50 text-sm mb-10 min-h-[60px]">
+                  {language === 'en' ? 'Receive content aligned with your brand, ready to test, iterate, and scale.' : 'Recibe contenido alineado con tu marca, listo para probar, iterar y escalar.'}
+                </p>
+
+                {/* UI Box 3 */}
+                <div className="w-full bg-[#111625] border border-white/5 rounded-2xl p-5 shadow-2xl relative overflow-hidden h-[160px] transform transition-transform duration-500 group-hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1020]/90 z-10 pointer-events-none" />
+                  <div className="text-[10px] text-white/30 font-mono uppercase tracking-widest mb-4">Final Asset</div>
+                  
+                  <div className="relative z-0 opacity-70 group-hover:opacity-100 transition-opacity">
+                    <div className="bg-[#1A2235] border border-white/10 rounded-xl aspect-video flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-40 blur-[1px]" />
+                      <PlayCircle className="w-8 h-8 text-white/80 relative z-10" />
+                      
+                      <div className="absolute bottom-2 right-2 flex items-center gap-1 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[8px] font-mono border border-white/10 z-10 text-white">
+                        <CheckCircle2 className="w-2.5 h-2.5 text-green-400" />
+                        APPROVED
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        {/* Microcopy final */}
+        <div className="text-center mt-24 max-w-xl mx-auto flex flex-wrap items-center justify-center gap-3 text-sm md:text-base font-medium text-white/40">
+          <span>{language === 'en' ? 'Less interpretation.' : 'Menos interpretación.'}</span>
+          <ArrowRight className="w-4 h-4 text-glow-cyan/50 hidden md:block" />
+          <span className="text-white/90">{language === 'en' ? 'More execution.' : 'Más ejecución.'}</span>
+        </div>
+
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from '../lib/i18n';
 
@@ -12,8 +13,13 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem('vyra_lang', language);
   }, [language]);
 
-  const t = (key) => {
-    return translations[language][key] || translations['en'][key] || key;
+  const t = (key, options = {}) => {
+    return (
+      translations[language]?.[key] ||
+      translations.en?.[key] ||
+      options.defaultValue ||
+      key
+    );
   };
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 "use client"
 
 import * as React from "react"
@@ -556,9 +557,7 @@ SidebarMenuBadge.displayName = "SidebarMenuBadge"
 
 const SidebarMenuSkeleton = React.forwardRef(
   ({ className, showIcon = false, ...props }, ref) => {
-    const width = React.useMemo(() => {
-      return `${Math.floor(Math.random() * 40) + 50}%`
-    }, [])
+    const width = showIcon ? "72%" : "88%"
 
     return (
       <div

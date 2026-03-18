@@ -1,56 +1,65 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LanguageProvider } from './contexts/LanguageContext';
+import React, { Suspense, lazy } from 'react'
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
+import { LanguageProvider } from './contexts/LanguageContext'
 
-// Pages - Marketing
-import Landing from './pages/marketing/Landing';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
+const Landing = lazy(() => import('./pages/marketing/Landing'))
+const Login = lazy(() => import('./pages/auth/Login'))
+const Register = lazy(() => import('./pages/auth/Register'))
+const BookDemo = lazy(() => import('./pages/marketing/BookDemo'))
+const AppLayout = lazy(() => import('./components/app/AppLayout'))
+const Overview = lazy(() => import('./pages/app/Overview'))
+const AngleEngine = lazy(() => import('./pages/app/AngleEngine'))
+const UgcCreator = lazy(() => import('./pages/app/UgcCreator'))
+const Library = lazy(() => import('./pages/app/Library'))
+const Settings = lazy(() => import('./pages/app/Settings'))
 
-// Pages - App
-import AppLayout from './components/app/AppLayout';
-import Dashboard from './pages/app/Dashboard';
-import Requests from './pages/app/Requests';
-import RequestFlow from './pages/app/RequestFlow';
-import Assets from './pages/app/Assets';
-import CreativeDirection from './pages/app/CreativeDirection';
-import CreatorProfiles from './pages/app/CreatorProfiles';
-import Plans from './pages/app/Plans';
-import Settings from './pages/app/Settings';
+function RouteFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-[#050814] px-6">
+      <div className="rounded-[28px] border border-white/10 bg-white/[0.03] px-6 py-4 text-sm font-medium text-white/70 backdrop-blur-xl">
+        Loading Vyra...
+      </div>
+    </div>
+  )
+}
 
-function App() {
+export default function App() {
   return (
     <LanguageProvider>
-      {/* Global Noise Overlay */}
       <svg className="noise-overlay" xmlns="http://www.w3.org/2000/svg">
         <filter id="noiseFilter">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
         </filter>
         <rect width="100%" height="100%" filter="url(#noiseFilter)" />
       </svg>
-      
+
       <Router>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          
-          {/* App Routes */}
-          <Route path="/app" element={<AppLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="requests" element={<Requests />} />
-            <Route path="requests/new" element={<RequestFlow />} />
-            <Route path="assets" element={<Assets />} />
-            <Route path="direction" element={<CreativeDirection />} />
-            <Route path="creators" element={<CreatorProfiles />} />
-            <Route path="plans" element={<Plans />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
-        </Routes>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/book-demo" element={<BookDemo />} />
+
+            <Route path="/app" element={<AppLayout />}>
+              <Route index element={<Navigate to="/app/overview" replace />} />
+              <Route path="overview" element={<Overview />} />
+              <Route path="angles" element={<AngleEngine />} />
+              <Route path="ugc" element={<UgcCreator />} />
+              <Route path="library" element={<Library />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="requests" element={<Navigate to="/app/angles" replace />} />
+              <Route path="assets" element={<Navigate to="/app/library" replace />} />
+              <Route path="direction" element={<Navigate to="/app/angles" replace />} />
+              <Route path="creators" element={<Navigate to="/app/ugc" replace />} />
+              <Route path="plans" element={<Navigate to="/book-demo" replace />} />
+              <Route path="*" element={<Navigate to="/app/overview" replace />} />
+            </Route>
+
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </Router>
     </LanguageProvider>
-  );
+  )
 }
-
-export default App;

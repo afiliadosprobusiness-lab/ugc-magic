@@ -1,4 +1,5 @@
 import * as React from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
@@ -15,15 +16,13 @@ const floatingAnimation = {
 };
 
 const DockIconButton = React.forwardRef(
-  ({ icon: Icon, label, onClick, className, href }, ref) => {
-    const Component = href ? motion.a : motion.button;
+  // eslint-disable-next-line no-unused-vars
+  ({ icon: Icon, onClick, className, href }, ref) => {
+    const Component = href ? "a" : "button";
     
     return (
       <Component
         ref={ref}
-        href={href}
-        whileHover={{ scale: 1.1, y: -2 }}
-        whileTap={{ scale: 0.95 }}
         onClick={onClick}
         className={cn(
           "relative group p-2.5 md:p-3 rounded-full md:rounded-lg",
@@ -32,15 +31,6 @@ const DockIconButton = React.forwardRef(
         )}
       >
         <Icon className="w-5 h-5 md:w-5 md:h-5 text-white/80 group-hover:text-glow-cyan transition-colors" />
-        <span className={cn(
-          "absolute -bottom-10 left-1/2 -translate-x-1/2",
-          "px-2 py-1 rounded text-[10px] md:text-xs font-medium",
-          "bg-[#0B1020] border border-white/10 text-white shadow-lg",
-          "opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100",
-          "transition-all duration-200 whitespace-nowrap pointer-events-none z-50"
-        )}>
-          {label}
-        </span>
       </Component>
     );
   }
@@ -62,7 +52,7 @@ const Dock = React.forwardRef(
             "hover:shadow-glow-cyan/20 hover:border-white/20 transition-all duration-300"
           )}
         >
-          {items.map((item, idx) => (
+          {items.map((item) => (
             <React.Fragment key={item.label}>
               <DockIconButton {...item} />
               {/* Optional separator after specific items if needed, handled by mapping logic generally, but we can keep it simple */}

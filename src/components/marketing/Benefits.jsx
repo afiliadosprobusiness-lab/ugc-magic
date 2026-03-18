@@ -7,20 +7,20 @@ export default function Benefits() {
 
   const benefits = [
     {
-      title: 'The End of Creative Burnout',
-      desc: 'No more chasing creators. Scale your visual output without scaling your headcount.',
+      title: language === 'en' ? 'Multiply volume with control' : 'Multiplica volumen con control',
+      desc: language === 'en' ? 'Stop chasing creators. Scale your visual variations month over month without scaling your internal team\'s workload.' : 'Deja de perseguir creadores. Escala tus variaciones visuales mes a mes sin escalar la carga operativa de tu equipo interno.',
       icon: BatteryCharging,
       color: 'text-glow-cyan'
     },
     {
-      title: 'Zero-friction Revisions',
-      desc: 'Our engine guarantees alignment with your initial brief. Revisions drop to near zero.',
+      title: language === 'en' ? 'Zero brand deviation' : 'Cero desviación de marca',
+      desc: language === 'en' ? 'We guarantee strict alignment with the initial brief. Iterations due to creative concept loss drop drastically.' : 'Garantizamos alineamiento estricto con el brief inicial. Las iteraciones por pérdida de concepto creativo se reducen drásticamente.',
       icon: CheckCircle2,
       color: 'text-electric-blue'
     },
     {
-      title: 'Brand Safety Guaranteed',
-      desc: 'Every creator is vetted, and every asset strictly adheres to your brand guidelines.',
+      title: language === 'en' ? 'Predictable operations' : 'Operativa predecible',
+      desc: language === 'en' ? 'Vetted creators and closed workflows. Move from an artisanal creative process to a structured production chain.' : 'Creadores verificados y flujos de trabajo cerrados. Pasa de un proceso creativo artesanal a una cadena de producción estructurada.',
       icon: ShieldAlert,
       color: 'text-vyra-violet'
     }
@@ -32,11 +32,11 @@ export default function Benefits() {
 
        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-sm md:text-base font-mono uppercase tracking-[0.2em] text-glow-cyan font-semibold mb-4">
-              WHY VYRA
+            <h2 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-glow-cyan font-semibold mb-4">
+              {language === 'en' ? 'WHY VYRA?' : '¿Por qué Vyra?'}
             </h2>
             <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-              {language === 'en' ? 'Built for scale.' : 'Construido para escalar.'}
+              {language === 'en' ? 'Scale volume. Keep identity.' : 'Escala volumen. Conserva identidad.'}
             </h3>
           </div>
 

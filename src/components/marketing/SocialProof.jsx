@@ -1,15 +1,17 @@
-  import React from 'react';
-import { MOCK_BRANDS } from '../../data/mock';
+import React from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import { VYRA_BRANDS } from '../../data/mock';
 
 export default function SocialProof() {
+  const { language } = useLanguage();
   // Double the array to ensure smooth infinite scrolling loop
-  const brands = [...MOCK_BRANDS, ...MOCK_BRANDS];
+  const brands = [...VYRA_BRANDS, ...VYRA_BRANDS];
 
   return (
-    <section className="py-16 md:py-24 bg-vyra-black relative z-20 border-t border-b border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-10">
-        <h2 className="text-center text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-white/40 font-semibold">
-          TRUSTED BY VISUAL-FIRST BRANDS AROUND THE WORLD
+    <section className="py-12 md:py-16 bg-vyra-black relative z-20 border-t border-b border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-8">
+        <h2 className="text-center text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-white/30 font-semibold">
+          {language === 'en' ? 'OPERATING IN THE VISUAL CORE OF SCALING BRANDS' : 'OPERANDO EN EL CORE VISUAL DE MARCAS QUE ESCALAN'}
         </h2>
       </div>
 
@@ -33,7 +35,7 @@ export default function SocialProof() {
           {brands.map((brand, idx) => (
             <div key={idx} className="flex items-center justify-center mx-12 md:mx-20 group">
               {/* Premium Typographic Logo Mock */}
-              <span className="text-2xl md:text-3xl font-bold tracking-tighter text-white/30 group-hover:text-white/70 transition-colors duration-500 cursor-default uppercase">
+              <span className="text-xl md:text-2xl font-bold tracking-tighter text-white/20 group-hover:text-white/60 transition-colors duration-700 cursor-default uppercase font-mono">
                 {brand.name}
               </span>
             </div>

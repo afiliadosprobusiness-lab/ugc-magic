@@ -1,75 +1,117 @@
-import React from 'react';
-import { Search, Bell, Globe, Plus } from 'lucide-react';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { useNavigate } from 'react-router-dom';
-import { SidebarTrigger } from '../blocks/sidebar';
+import React from 'react'
+import { Globe, Sparkles, Video } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { useVyraApp } from '../../contexts/VyraAppContext'
+import { Button } from '../ui/Button'
+import { SidebarTrigger } from '../blocks/sidebar'
+
+const pageMeta = {
+  '/app/overview': {
+    title: { en: 'Creative workflow overview', es: 'Resumen del flujo creativo' },
+    description: {
+      en: 'Track angle output, active drafts, and what is ready for testing next.',
+      es: 'Sigue angulos, drafts activos y lo que esta listo para testear.',
+    },
+  },
+  '/app/angles': {
+    title: { en: 'Angle Engine', es: 'Motor de angulos' },
+    description: {
+      en: 'Generate structured selling angles from offer, audience, and objective.',
+      es: 'Genera angulos estructurados desde oferta, audiencia y objetivo.',
+    },
+  },
+  '/app/ugc': {
+    title: { en: 'UGC Creator', es: 'Creador UGC' },
+    description: {
+      en: 'Turn a selected angle into controlled, campaign-ready UGC variations.',
+      es: 'Convierte un angulo seleccionado en variaciones UGC listas para campana.',
+    },
+  },
+  '/app/library': {
+    title: { en: 'Library', es: 'Libreria' },
+    description: {
+      en: 'Organize angle groups, scripts, and test-ready outputs in one place.',
+      es: 'Organiza grupos por angulo, scripts y outputs listos para testeo.',
+    },
+  },
+  '/app/settings': {
+    title: { en: 'Settings', es: 'Configuracion' },
+    description: {
+      en: 'Keep workspace and output defaults aligned across every variation.',
+      es: 'Mantiene los defaults del workspace y outputs alineados.',
+    },
+  },
+}
 
 export default function Topbar() {
-  const { language, setLanguage, t } = useLanguage();
-  const navigate = useNavigate();
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'es' : 'en');
-  };
+  const { language, setLanguage } = useLanguage()
+  const { activeBrand, state, setActiveBrand, selectedAngle } = useVyraApp()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const currentPage = pageMeta[location.pathname] || pageMeta['/app/overview']
 
   return (
-    <header className="sticky top-0 z-40 bg-ice-white/80 backdrop-blur-md border-b border-soft-gray/50 h-16 flex items-center justify-between px-4 sm:px-6">
-      <div className="flex items-center gap-4">
-        <SidebarTrigger className="hover:bg-soft-gray p-2 rounded-md transition-colors" />
-        
-        {/* Workspace selector mock */}
-        <div className="hidden md:flex items-center gap-2 cursor-pointer hover:bg-white px-3 py-1.5 rounded-lg border border-transparent hover:border-soft-gray transition-all">
-          <div className="w-6 h-6 rounded bg-gradient-to-br from-vyra-violet to-electric-blue flex flex-col items-center justify-center text-white text-xs font-bold">
-            A
+    <header className="sticky top-0 z-40 flex min-h-20 items-center justify-between border-b border-white/5 bg-[#050914]/88 px-4 backdrop-blur-xl sm:px-6">
+      <div className="flex min-w-0 items-center gap-3">
+        <SidebarTrigger className="rounded-xl border border-white/10 bg-white/5 p-2 hover:bg-white/10" />
+
+        <div className="min-w-0">
+          <div className="text-sm font-semibold text-white md:text-base">
+            {currentPage.title[language]}
           </div>
-          <span className="font-medium text-sm text-vyra-black">Auren Skin</span>
+          <p className="hidden truncate text-sm text-white/45 md:block">
+            {currentPage.description[language]}
+          </p>
         </div>
       </div>
 
-      <div className="flex items-center gap-3 sm:gap-4 flex-1 justify-end">
-        {/* Search */}
-        <div className="relative hidden md:block max-w-sm w-full mx-4">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <Input 
-            type="search" 
-            placeholder={t('app.search')} 
-            className="w-full pl-9 h-9 rounded-full bg-white border-soft-gray focus-visible:ring-electric-blue focus-visible:border-electric-blue text-vyra-black placeholder:text-gray-400"
-          />
-        </div>
+      <div className="flex items-center gap-3">
+        <label className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 md:flex">
+          <span className="text-xs uppercase tracking-[0.2em] text-white/35">
+            {language === 'en' ? 'Brand' : 'Marca'}
+          </span>
+          <select
+            value={activeBrand.id}
+            onChange={(event) => setActiveBrand(event.target.value)}
+            className="bg-transparent text-sm font-medium text-white outline-none"
+          >
+            {state.brands.map((brand) => (
+              <option key={brand.id} value={brand.id} className="bg-[#07101D]">
+                {brand.name}
+              </option>
+            ))}
+          </select>
+        </label>
 
-        {/* Global actions */}
-        <button className="relative p-2 text-gray-500 hover:text-vyra-black hover:bg-white rounded-full transition-colors">
-          <Bell className="h-5 w-5" />
-          <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-vyra-violet ring-2 ring-ice-white"></span>
+        <button
+          onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+          className="flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+          title="Toggle language"
+        >
+          <Globe className="h-4 w-4" />
+          <span className="hidden uppercase sm:inline">{language}</span>
         </button>
 
-        <button 
-          onClick={toggleLanguage}
-          className="p-2 text-gray-500 hover:text-vyra-black hover:bg-white rounded-full transition-colors flex items-center gap-1"
-          title="Toggle Language"
+        <Button
+          variant="secondary"
+          size="sm"
+          className="hidden sm:inline-flex"
+          onClick={() => navigate('/app/angles')}
         >
-          <Globe className="h-5 w-5" />
-          <span className="text-xs font-bold uppercase hidden sm:inline-block">{language}</span>
-        </button>
+          <Sparkles className="mr-2 h-4 w-4" />
+          {language === 'en' ? 'Generate angles' : 'Generar angulos'}
+        </Button>
 
-        {/* User dropdown mock */}
-        <div className="h-8 w-8 rounded-full bg-slate-core text-white flex items-center justify-center font-bold text-sm cursor-pointer ring-2 ring-white ml-1">
-          K
-        </div>
-
-        {/* Main CTA */}
-        <Button 
-          variant="primary" 
-          size="sm" 
-          className="ml-2 hidden sm:flex"
-          onClick={() => navigate('/app/requests/new')}
+        <Button
+          variant="primary"
+          size="sm"
+          onClick={() => navigate(selectedAngle ? '/app/ugc' : '/app/angles')}
         >
-          <Plus className="h-4 w-4 mr-1" />
-          {t('nav.createRequest')}
+          <Video className="mr-2 h-4 w-4" />
+          {language === 'en' ? 'Create UGC' : 'Crear UGC'}
         </Button>
       </div>
     </header>
-  );
+  )
 }

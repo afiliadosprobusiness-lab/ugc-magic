@@ -1,6 +1,5 @@
 export const translations = {
   en: {
-    // Navigation
     'nav.benefits': 'Benefits',
     'nav.howItWorks': 'How it works',
     'nav.plans': 'Plans',
@@ -10,67 +9,68 @@ export const translations = {
     'nav.bookDemo': 'Book a demo',
     'nav.createRequest': 'Create UGC Request',
 
-    // Hero Landing
     'hero.badge': 'Enterprise Grade Platform',
     'hero.title': 'Turn product references into high-converting UGC production',
-    'hero.subtitle': 'For beauty, jewelry, fashion and visual-first brands that need faster, more consistent creative output without relying on slow shoots or fragmented workflows.',
+    'hero.subtitle':
+      'For beauty, jewelry, fashion and visual-first brands that need faster, more consistent creative output without relying on slow shoots or fragmented workflows.',
     'hero.cta.primary': 'Book a demo',
     'hero.cta.secondary': 'See how it works',
     'hero.microcopy': 'Structured requests. Better consistency. Faster creative cycles.',
 
-    // General App
     'app.workspace': 'Workspace',
     'app.search': 'Search',
-    
-    // Auth
+
     'auth.startWorkspace': 'Start your workspace',
     'auth.email': 'Work Email',
     'auth.password': 'Password',
     'auth.login': 'Log In',
     'auth.register': 'Create workspace',
 
-    // Generic status
     'status.draft': 'Draft',
     'status.inReview': 'In Review',
     'status.approved': 'Approved',
     'status.inProduction': 'In Production',
     'status.delivered': 'Delivered',
+
+    'final.title': 'Build a repeatable creative pipeline',
+    'final.subtitle':
+      'Operate UGC production with the same structure and clarity you expect from any serious growth system.',
   },
   es: {
-    // Navigation
     'nav.benefits': 'Beneficios',
-    'nav.howItWorks': 'Cómo funciona',
+    'nav.howItWorks': 'Como funciona',
     'nav.plans': 'Planes',
-    'nav.premium': 'Experiencia Premium',
+    'nav.premium': 'Experiencia premium',
     'nav.results': 'Resultados',
-    'nav.login': 'Iniciar Sesión',
+    'nav.login': 'Iniciar sesion',
     'nav.bookDemo': 'Agendar demo',
     'nav.createRequest': 'Crear solicitud UGC',
 
-    // Hero Landing
-    'hero.badge': 'Plataforma Grado Enterprise',
-    'hero.title': 'Convierte referencias de producto en producción UGC de alto impacto',
-    'hero.subtitle': 'Para marcas de beauty, joyería, fashion y negocios visuales que necesitan output creativo más rápido y consistente, sin depender de sesiones lentas ni flujos fragmentados.',
+    'hero.badge': 'Plataforma grado enterprise',
+    'hero.title': 'Convierte referencias de producto en produccion UGC de alto impacto',
+    'hero.subtitle':
+      'Para marcas de beauty, joyeria, fashion y negocios visuales que necesitan output creativo mas rapido y consistente, sin depender de sesiones lentas ni flujos fragmentados.',
     'hero.cta.primary': 'Agendar demo',
-    'hero.cta.secondary': 'Ver cómo funciona',
-    'hero.microcopy': 'Solicitudes estructuradas. Mejor consistencia. Ciclos creativos más rápidos.',
+    'hero.cta.secondary': 'Ver como funciona',
+    'hero.microcopy': 'Solicitudes estructuradas. Mejor consistencia. Ciclos creativos mas rapidos.',
 
-    // General App
     'app.workspace': 'Espacio de trabajo',
     'app.search': 'Buscar',
-    
-    // Auth
+
     'auth.startWorkspace': 'Crea tu espacio de trabajo',
-    'auth.email': 'Email de Trabajo',
-    'auth.password': 'Contraseña',
-    'auth.login': 'Iniciar sesión',
+    'auth.email': 'Email de trabajo',
+    'auth.password': 'Contrasena',
+    'auth.login': 'Iniciar sesion',
     'auth.register': 'Crear espacio de trabajo',
 
-    // Generic status
     'status.draft': 'Borrador',
-    'status.inReview': 'En Revisión',
+    'status.inReview': 'En revision',
     'status.approved': 'Aprobado',
-    'status.inProduction': 'En Producción',
+    'status.inProduction': 'En produccion',
     'status.delivered': 'Entregado',
-  }
-};
+
+    'final.title': 'Construye un pipeline creativo repetible',
+    'final.subtitle':
+      'Opera la produccion UGC con la misma estructura y claridad que esperas de cualquier sistema serio de crecimiento.',
+  },
+}

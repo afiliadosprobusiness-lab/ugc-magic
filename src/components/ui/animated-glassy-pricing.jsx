@@ -42,7 +42,7 @@ const ShaderCanvas = () => {
     let gl;
     try {
       gl = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-    } catch (e) {
+    } catch {
       return;
     }
     
@@ -135,11 +135,11 @@ const ShaderCanvas = () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-    } catch (err) {
+    } catch {
       // Silently fail on WebGL issues; gracefully fallback to CSS backgrounds
       return;
     }
-  }, []);
+  }, [backgroundColor]);
 
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full block z-0 opacity-20 pointer-events-none" />;
 };

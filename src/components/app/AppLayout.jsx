@@ -1,23 +1,36 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { SidebarProvider, SidebarInset } from '../blocks/sidebar';
-import { VyraAppSidebar } from './VyraAppSidebar';
-import Topbar from './Topbar';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import { SidebarInset, SidebarProvider } from '../blocks/sidebar'
+import { VyraAppProvider, useVyraApp } from '../../contexts/VyraAppContext'
+import { VyraAppSidebar } from './VyraAppSidebar'
+import Topbar from './Topbar'
+import ToastViewport from './ToastViewport'
 
-export default function AppLayout() {
+function AppShell() {
+  const { toasts } = useVyraApp()
+
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-ice-white text-vyra-black overflow-hidden relative">
+      <div className="surface-app-shell relative flex min-h-screen w-full overflow-hidden text-white">
         <VyraAppSidebar />
-        
-        <SidebarInset className="flex w-full flex-col overflow-hidden bg-ice-white/50">
+
+        <SidebarInset className="relative flex w-full flex-col overflow-hidden bg-transparent">
           <Topbar />
-          
-          <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-8 max-w-[1600px] w-full mx-auto relative z-10">
+          <ToastViewport toasts={toasts} />
+
+          <main className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-1 overflow-y-auto overflow-x-hidden px-4 pb-10 pt-4 md:px-8">
             <Outlet />
           </main>
         </SidebarInset>
       </div>
     </SidebarProvider>
-  );
+  )
+}
+
+export default function AppLayout() {
+  return (
+    <VyraAppProvider>
+      <AppShell />
+    </VyraAppProvider>
+  )
 }

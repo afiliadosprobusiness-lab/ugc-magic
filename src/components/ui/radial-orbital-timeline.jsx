@@ -7,11 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "./card-shadcn";
 
 export default function RadialOrbitalTimeline({ timelineData }) {
   const [expandedItems, setExpandedItems] = useState({});
-  const [viewMode, setViewMode] = useState("orbital");
+  const [viewMode] = useState("orbital");
   const [rotationAngle, setRotationAngle] = useState(0);
   const [autoRotate, setAutoRotate] = useState(true);
   const [pulseEffect, setPulseEffect] = useState({});
-  const [centerOffset, setCenterOffset] = useState({ x: 0, y: 0 });
+  const [centerOffset] = useState({ x: 0, y: 0 });
   const [activeNodeId, setActiveNodeId] = useState(null);
   const [radius, setRadius] = useState(180);
   

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 // --- Configuration Constants ---
 const PARTICLE_DENSITY = 0.00015; // Particles per pixel squared (adjust for density)
@@ -13,7 +13,6 @@ const randomRange = (min, max) => Math.random() * (max - min) + min;
 export const AntiGravityCanvas = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const [debugInfo, setDebugInfo] = useState({ count: 0, fps: 0 });
   
   const particlesRef = useRef([]);
   const backgroundParticlesRef = useRef([]);
@@ -61,17 +60,14 @@ export const AntiGravityCanvas = () => {
       });
     }
     backgroundParticlesRef.current = newBgParticles;
-
-    setDebugInfo(prev => ({ ...prev, count: particleCount + bgCount }));
   }, []);
 
-  const animate = useCallback((time) => {
+  const animate = useCallback(function animateFrame(time) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -218,7 +214,7 @@ export const AntiGravityCanvas = () => {
       ctx.fill();
     }
 
-    frameIdRef.current = requestAnimationFrame(animate);
+    frameIdRef.current = requestAnimationFrame(animateFrame);
   }, []);
 
   useEffect(() => {

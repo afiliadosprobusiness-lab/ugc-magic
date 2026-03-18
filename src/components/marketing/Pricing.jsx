@@ -3,66 +3,85 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { ModernPricingPage } from '../ui/animated-glassy-pricing';
 
 export default function Pricing() {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
 
   const myPricingPlans = [
     { 
-      planName: t('pricing.p1.title', { defaultValue: "Starter" }), 
-      description: t('pricing.p1.desc', { defaultValue: "Lanza tu primer set creativo" }), 
-      price: "3 UGC videos", 
-      features: [
+      planName: language === 'en' ? 'Starter' : 'Starter', 
+      description: language === 'en' ? 'Launch your first creative batch' : 'Lanza tu primer set creativo', 
+      price: language === 'en' ? '3 UGC Videos' : '3 Videos UGC', 
+      features: language === 'en' ? [
         "Structured request workflow", 
         "Basic creative direction", 
         "Fast turnaround"
+      ] : [
+        "Workflow de input estructurado", 
+        "Dirección creativa base", 
+        "Turnaround veloz"
       ], 
-      buttonText: t('pricing.cta', { defaultValue: "Comenzar" }), 
+      buttonText: language === 'en' ? 'Get Started' : 'Comenzar', 
       buttonVariant: 'secondary'
     },
     { 
-      planName: t('pricing.p2.title', { defaultValue: "Grow" }), 
-      description: t('pricing.p2.desc', { defaultValue: "Construye tu motor semanal de contenido" }), 
-      price: "10 UGC videos", 
-      features: [
+      planName: language === 'en' ? 'Grow' : 'Grow', 
+      description: language === 'en' ? 'Build your weekly content engine' : 'Construye tu motor semanal de contenido', 
+      price: language === 'en' ? '10 UGC Videos' : '10 Videos UGC', 
+      features: language === 'en' ? [
         "Structured creative direction", 
-        "Better variation workflow", 
+        "Predictable variation workflow", 
         "Designed for weekly output", 
-        "Priority matching"
+        "Priority creator matching"
+      ] : [
+        "Dirección creativa estructurada", 
+        "Workflow de variaciones predecible", 
+        "Diseñado para output semanal", 
+        "Matching prioritario de creadores"
       ], 
-      buttonText: t('pricing.cta', { defaultValue: "Comenzar" }), 
+      buttonText: language === 'en' ? 'Deploy Now' : 'Desplegar Ahora', 
       isPopular: true, 
       buttonVariant: 'primary' 
     },
     { 
-      planName: t('pricing.p3.title', { defaultValue: "Scale" }), 
-      description: t('pricing.p3.desc', { defaultValue: "Escala tu producción visual" }), 
-      price: "30 UGC videos", 
-      features: [
+      planName: language === 'en' ? 'Scale' : 'Scale', 
+      description: language === 'en' ? 'Scale your visual production pipeline' : 'Escala tu pipeline de producción visual', 
+      price: language === 'en' ? '30+ UGC Videos' : '30+ Videos UGC', 
+      features: language === 'en' ? [
         "Built for campaign volume", 
-        "Stronger consistency logic", 
-        "Better support for testing", 
+        "Strict visual consistency logic", 
+        "A/B testing ready assets", 
         "Dedicated account lead"
+      ] : [
+        "Construido para volumen de campaña", 
+        "Lógica estricta de consistencia visual", 
+        "Assets listos para testing A/B", 
+        "Lead de cuenta dedicado"
       ], 
-      buttonText: t('pricing.cta', { defaultValue: "Comenzar" }), 
+      buttonText: language === 'en' ? 'Get Started' : 'Comenzar', 
       buttonVariant: 'secondary' 
     },
     { 
-      planName: t('pricing.p4.title', { defaultValue: "Custom System" }), 
-      description: t('pricing.p4.desc', { defaultValue: "¿Necesitas un flujo de producción a medida?" }), 
-      price: "Tailored volume", 
-      features: [
-        "Tailored setup", 
-        "Stronger consistency", 
-        "Recurring production structure", 
-        "Workflow implementation"
+      planName: language === 'en' ? 'Custom System' : 'Custom System', 
+      description: language === 'en' ? 'Need a tailored production workflow?' : '¿Necesitas un flujo de producción a medida?', 
+      price: language === 'en' ? 'Tailored Volume' : 'Volumen a Medida', 
+      features: language === 'en' ? [
+        "Custom deployment setup", 
+        "Absolute consistency control", 
+        "Recurring production operations", 
+        "Private workflow implementation"
+      ] : [
+        "Setup de despliegue customizado", 
+        "Control absoluto de consistencia", 
+        "Operativa de producción recurrente", 
+        "Implementación de workflow privado"
       ], 
-      buttonText: t('pricing.cta.contact', { defaultValue: "Hablar con nosotros" }), 
+      buttonText: language === 'en' ? 'Talk to Sales' : 'Hablar con Ventas', 
       buttonVariant: 'secondary' 
     },
   ];
 
   const titleComponent = (
-    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-      {t('pricing.title', { defaultValue: "Planes simples para producción UGC estructurada" })}
+    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
+      {language === 'en' ? 'Simple plans for structured UGC production.' : 'Planes simples para producción UGC estructurada.'}
     </h2>
   );
 
@@ -70,7 +89,7 @@ export default function Pricing() {
     <section id="plans">
       <ModernPricingPage
         title={titleComponent}
-        subtitle={t('pricing.subtitle', { defaultValue: "Elige el nivel de output que tu marca necesita hoy. Escala a un sistema a medida cuando necesites más estructura, consistencia y escala." })}
+        subtitle={language === 'en' ? 'Choose the output level your brand needs today. Scale up to a tailored system when you need more volume, consistency, and structure.' : 'Elige el nivel de output que tu marca necesita hoy. Escala a un sistema a medida cuando necesites más estructura, consistencia y volumen.'}
         plans={myPricingPlans}
         showAnimatedBackground={true}
       />

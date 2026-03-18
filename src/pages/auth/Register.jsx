@@ -1,116 +1,90 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { Card } from '../../components/ui/Card';
-import { Badge } from '../../components/ui/Badge';
-import { Globe, Layers } from 'lucide-react';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { Badge } from '../../components/ui/Badge'
+import { Button } from '../../components/ui/Button'
+import { Card } from '../../components/ui/Card'
+import { Input } from '../../components/ui/Input'
 
 export default function Register() {
-  const { t, language, setLanguage } = useLanguage();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const { language, setLanguage } = useLanguage()
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Fake workspace creation delay
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/app');
-    }, 2000);
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setIsLoading(true)
+    window.setTimeout(() => {
+      setIsLoading(false)
+      navigate('/app/overview')
+    }, 1400)
+  }
 
   return (
-    <div className="min-h-screen bg-vyra-black flex flex-col items-center justify-center p-6 relative overflow-hidden">
-      {/* Background glow behind card */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-electric-blue/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-vyra-violet/10 blur-[150px] rounded-full pointer-events-none" />
-      
-      <div className="w-full max-w-md relative z-10">
-        <div className="flex justify-between items-center mb-8">
-          <Link to="/" className="text-xl tracking-tight font-bold text-white flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-glow-cyan flex items-center justify-center shadow-[0_0_15px_rgba(0,184,255,0.3)]">
-              <span className="font-bold text-vyra-black text-xl">V</span>
-            </div>
-            VYRA
-          </Link>
-          <button 
-            onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-            className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
-          >
-            <Globe className="w-4 h-4" />
-            <span className="uppercase">{language}</span>
-          </button>
-        </div>
-
-        <Card className="p-8 border-white/10 bg-slate-core/30 backdrop-blur-xl shadow-2xl mb-6">
-          <div className="text-center mb-8">
-            <Badge variant="glow" className="mb-4">Workspace Setup</Badge>
-            <h1 className="text-2xl font-bold tracking-tight text-white">
-              {t('auth.startWorkspace')}
-            </h1>
-            <p className="text-sm text-white/50 mt-2">
-              Join visual brands shipping structured UGC.
-            </p>
-          </div>
-
-          <form onSubmit={handleRegister} className="space-y-5">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">Full Name</label>
-              <Input type="text" placeholder="Jane Doe" required />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">{t('auth.email')}</label>
-              <Input type="email" placeholder="jane@brand.com" required />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">Brand Name</label>
-              <Input type="text" placeholder="Acme Skincare" required />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">Brand Category</label>
-              <select className="flex h-12 w-full rounded-[16px] border border-white/10 bg-slate-core/50 px-4 py-2 text-sm text-white shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-glow-cyan focus-visible:border-glow-cyan/50 hover:border-white/20 transition-all duration-300">
-                <option value="" className="bg-slate-core">Select industry</option>
-                <option value="beauty" className="bg-slate-core">Beauty & Skincare</option>
-                <option value="jewelry" className="bg-slate-core">Jewelry</option>
-                <option value="fashion" className="bg-slate-core">Fashion & Accessories</option>
-                <option value="luxury" className="bg-slate-core">Luxury Product</option>
-              </select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">{t('auth.password')}</label>
-              <Input type="password" placeholder="••••••••" required />
-            </div>
-
-            <div className="flex items-start gap-2 pt-2">
-              <input type="checkbox" id="terms" required className="mt-1 rounded bg-slate-core border-white/10 text-glow-cyan focus:ring-glow-cyan" />
-              <label htmlFor="terms" className="text-xs text-white/50 leading-relaxed">
-                I agree to the Terms of Service and Privacy Policy. I understand this is a mock setup.
-              </label>
-            </div>
-
-            <div className="pt-2">
-              <Button type="submit" variant="primary" className="w-full flex items-center justify-center gap-2" isLoading={isLoading}>
-                {!isLoading && <Layers className="w-4 h-4" />}
-                {t('auth.register')}
-              </Button>
-            </div>
-          </form>
+    <div className="flex min-h-screen items-center justify-center bg-[#050814] px-4 py-10 text-white md:px-8">
+      <div className="grid w-full max-w-[1180px] gap-6 lg:grid-cols-[1.02fr,0.98fr]">
+        <Card className="border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(97,121,255,0.18),transparent_34%),rgba(255,255,255,0.03)] p-8">
+          <div className="text-xs uppercase tracking-[0.24em] text-white/35">Why teams sign up</div>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+            {language === 'en'
+              ? 'Create a workspace built around angle generation and realistic UGC.'
+              : 'Crea un workspace construido alrededor de angulos y UGC realista.'}
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/56">
+            {language === 'en'
+              ? 'Vyra is not a prompt playground. It is a tighter creative system for teams that need more ideas, more variations, and faster testing.'
+              : 'Vyra no es un playground de prompts. Es un sistema creativo mas ajustado para equipos que necesitan mas ideas, mas variaciones y testeo mas rapido.'}
+          </p>
         </Card>
 
-        <div className="text-center text-sm text-white/40">
-          Already have an account?{' '}
-          <Link to="/login" className="text-white font-semibold hover:text-glow-cyan hover:underline transition-colors">
-            {t('nav.login')} here
-          </Link>
-        </div>
+        <Card className="border-white/10 bg-white/[0.03] p-8">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg font-semibold">V</div>
+              <div className="text-lg font-semibold tracking-tight">Vyra</div>
+            </Link>
+            <button onClick={() => setLanguage(language === 'en' ? 'es' : 'en')} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/70">
+              {language.toUpperCase()}
+            </button>
+          </div>
+
+          <Badge variant="glow" className="mt-10">{language === 'en' ? 'Create workspace' : 'Crear workspace'}</Badge>
+          <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Full name' : 'Nombre completo'}</span>
+              <Input placeholder="Jane Doe" required />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Work email' : 'Email de trabajo'}</span>
+              <Input type="email" placeholder="team@brand.com" required />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Workspace name' : 'Nombre del workspace'}</span>
+              <Input placeholder="Vyra Growth Workspace" required />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Brand vertical' : 'Vertical de marca'}</span>
+              <select className="h-12 rounded-[16px] border border-white/10 bg-black/20 px-4 text-sm text-white outline-none">
+                <option className="bg-[#0A1322]">Skincare</option>
+                <option className="bg-[#0A1322]">Supplements</option>
+                <option className="bg-[#0A1322]">Ecommerce lifestyle</option>
+              </select>
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Password' : 'Contrasena'}</span>
+              <Input type="password" placeholder="demo-password" required />
+            </label>
+            <Button type="submit" variant="primary" className="mt-2 w-full" isLoading={isLoading}>
+              {language === 'en' ? 'Launch workspace' : 'Lanzar workspace'}
+            </Button>
+          </form>
+
+          <p className="mt-6 text-sm text-white/48">
+            {language === 'en' ? 'Already have access?' : 'Ya tienes acceso?'}{' '}
+            <Link to="/login" className="font-semibold text-white">{language === 'en' ? 'Log in' : 'Inicia sesion'}</Link>
+          </p>
+        </Card>
       </div>
     </div>
-  );
+  )
 }

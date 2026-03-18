@@ -1,119 +1,91 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../contexts/LanguageContext';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
-import { Card } from '../../components/ui/Card';
-import { Globe, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { Badge } from '../../components/ui/Badge'
+import { Button } from '../../components/ui/Button'
+import { Card } from '../../components/ui/Card'
+import { Input } from '../../components/ui/Input'
 
 export default function Login() {
-  const { t, language, setLanguage } = useLanguage();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const { language, setLanguage } = useLanguage()
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Fake authentication delay
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/app');
-    }, 1500);
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setIsLoading(true)
+    window.setTimeout(() => {
+      setIsLoading(false)
+      navigate('/app/overview')
+    }, 1200)
+  }
 
   return (
-    <div className="min-h-screen bg-vyra-black flex flex-col md:flex-row relative overflow-hidden">
-      {/* Background glow behind card */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-electric-blue/5 blur-[120px] rounded-full pointer-events-none" />
-
-      {/* Left side: Form */}
-      <div className="flex-1 flex flex-col justify-center px-6 md:px-20 py-12 relative z-10">
-        <div className="w-full max-w-sm mx-auto">
-          <div className="flex justify-between items-center mb-16">
-            <Link to="/" className="text-xl tracking-tight font-bold text-white flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-glow-cyan flex items-center justify-center shadow-[0_0_15px_rgba(0,184,255,0.3)]">
-                <span className="font-bold text-vyra-black text-xl">V</span>
-              </div>
-              VYRA
+    <div className="flex min-h-screen items-center justify-center bg-[#050814] px-4 py-10 text-white md:px-8">
+      <div className="grid w-full max-w-[1180px] gap-6 lg:grid-cols-[0.82fr,1.18fr]">
+        <Card className="border-white/10 bg-white/[0.03] p-8">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg font-semibold">V</div>
+              <div className="text-lg font-semibold tracking-tight">Vyra</div>
             </Link>
-            <button 
-              onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="uppercase">{language}</span>
+            <button onClick={() => setLanguage(language === 'en' ? 'es' : 'en')} className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/70">
+              {language.toUpperCase()}
             </button>
           </div>
 
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold tracking-tight text-white mb-2">
-              {t('hero.title').split(' ').slice(0, 5).join(' ')}...
-            </h1>
-            <p className="text-sm text-white/50">
-              {t('nav.login')} to manage your structured workflow.
-            </p>
-          </div>
+          <Badge variant="glow" className="mt-10">{language === 'en' ? 'Workspace access' : 'Acceso al workspace'}</Badge>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+            {language === 'en' ? 'Log in to keep the angle workflow moving.' : 'Inicia sesion para mantener activo el workflow de angulos.'}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-white/56">
+            {language === 'en'
+              ? 'Access the premium workspace where angles become realistic UGC variations and grouped testing outputs.'
+              : 'Accede al workspace premium donde los angulos se convierten en variaciones UGC realistas y outputs agrupados para testing.'}
+          </p>
 
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/70">{t('auth.email')}</label>
-              <Input type="email" placeholder="name@brand.com" required />
-            </div>
-            
-            <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <label className="text-sm font-medium text-white/70">{t('auth.password')}</label>
-                <a href="#" className="text-xs text-glow-cyan hover:underline">Forgot?</a>
-              </div>
-              <Input type="password" placeholder="••••••••" required />
-            </div>
-
-            <div className="flex items-center gap-2 pt-2">
-              <input type="checkbox" id="remember" className="rounded bg-slate-core border-white/10 text-glow-cyan focus:ring-glow-cyan" />
-              <label htmlFor="remember" className="text-sm text-white/50">Remember me</label>
-            </div>
-
-            <Button type="submit" variant="primary" className="w-full mt-4" isLoading={isLoading}>
-              {t('nav.login')}
+          <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Work email' : 'Email de trabajo'}</span>
+              <Input type="email" placeholder="team@brand.com" required />
+            </label>
+            <label className="grid gap-2">
+              <span className="text-sm text-white/55">{language === 'en' ? 'Password' : 'Contrasena'}</span>
+              <Input type="password" placeholder="demo-password" required />
+            </label>
+            <Button type="submit" variant="primary" className="mt-2 w-full" isLoading={isLoading}>
+              {language === 'en' ? 'Enter workspace' : 'Entrar al workspace'}
             </Button>
           </form>
 
-          <div className="mt-8 text-sm text-white/40">
-            {language === 'en' ? 'New to Vyra?' : '¿Nuevo en Vyra?'}{' '}
-            <Link to="/register" className="text-white font-semibold hover:text-glow-cyan hover:underline transition-colors">
-              {t('auth.register')}
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Right side: Visual */}
-      <div className="hidden md:flex flex-1 bg-slate-core/30 text-white relative items-center justify-center p-12 overflow-hidden border-l border-white/5">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1020] to-slate-core opacity-50" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-luminosity" />
-        
-        <div className="relative z-10 max-w-md">
-          <div className="glass-panel p-8 rounded-3xl mb-8 flex flex-col gap-5">
-            <div className="flex items-center gap-3 border-b border-white/10 pb-4">
-              <div className="w-2 h-2 rounded-full bg-glow-cyan shadow-[0_0_8px_rgba(34,211,238,0.5)] animate-pulse" />
-              <div className="font-mono text-xs uppercase tracking-widest text-white/50">System Status</div>
-            </div>
-            <div className="flex items-center justify-between text-white/90 font-medium group cursor-default">
-              Structured workflows <ArrowRight className="w-4 h-4 text-glow-cyan opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-            <div className="flex items-center justify-between text-white/90 font-medium group cursor-default">
-              Better consistency <ArrowRight className="w-4 h-4 text-glow-cyan opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-            <div className="flex items-center justify-between text-white/90 font-medium group cursor-default">
-              Faster output <ArrowRight className="w-4 h-4 text-glow-cyan opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-          </div>
-          
-          <p className="text-lg text-white/60 font-medium leading-relaxed max-w-sm">
-            {t('hero.subtitle')}
+          <p className="mt-6 text-sm text-white/48">
+            {language === 'en' ? 'Need a workspace?' : 'Necesitas un workspace?'}{' '}
+            <Link to="/register" className="font-semibold text-white">{language === 'en' ? 'Create one' : 'Crear uno'}</Link>
           </p>
-        </div>
+        </Card>
+
+        <Card className="border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(97,121,255,0.18),transparent_34%),rgba(255,255,255,0.03)] p-8">
+          <div className="max-w-2xl">
+            <div className="text-xs uppercase tracking-[0.24em] text-white/35">Inside Vyra</div>
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white">
+              {language === 'en' ? 'A focused workflow for ad-ready creative.' : 'Un workflow enfocado para creative listo para ads.'}
+            </h2>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {[
+                ['Angle Engine', 'Generate structured angles from offer, audience, and objective.'],
+                ['UGC Creator', 'Turn the selected angle into controlled UGC variations.'],
+                ['Library', 'Keep grouped outputs organized around the angle that created them.'],
+                ['Testing clarity', 'Reduce guesswork by keeping variations tied to a real creative direction.'],
+              ].map(([title, body]) => (
+                <div key={title} className="rounded-[22px] border border-white/10 bg-black/20 p-5">
+                  <div className="text-lg font-semibold text-white">{title}</div>
+                  <p className="mt-3 text-sm leading-relaxed text-white/56">{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Card>
       </div>
     </div>
-  );
+  )
 }

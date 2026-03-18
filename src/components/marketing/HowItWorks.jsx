@@ -8,22 +8,22 @@ export default function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'The Blueprint',
-      desc: 'Input reference visuals, target demographics, and brand guidelines.',
+      title: language === 'en' ? 'The Input' : 'El Input',
+      desc: language === 'en' ? 'Upload visual references, set demographics, and lock brand guidelines in a structured format.' : 'Sube referencias visuales, establece demografía y fija guías de marca en un formato estructurado.',
       icon: Layers,
       color: 'border-white/10'
     },
     {
       num: '02',
-      title: 'The Logic',
-      desc: 'Our engine matches verified creators and enforces visual consistency.',
+      title: language === 'en' ? 'The System' : 'El Sistema',
+      desc: language === 'en' ? 'Our engine matches verified creators and enforces strict visual consistency without micro-management.' : 'Nuestro motor asigna creadores verificados y fuerza una estricta consistencia visual sin necesidad de micro-management.',
       icon: Crosshair,
       color: 'border-glow-cyan/50 shadow-[0_0_30px_rgba(34,211,238,0.2)]'
     },
     {
       num: '03',
-      title: 'The Output',
-      desc: 'Receive variations ready for deployment within 72 hours.',
+      title: language === 'en' ? 'The Output' : 'El Despliegue',
+      desc: language === 'en' ? 'Receive variations ready for ad deployment in under 72 hours.' : 'Recibe variaciones listas para pauta publicitaria en menos de 72 horas.',
       icon: Zap,
       color: 'border-vyra-violet/50 shadow-[0_0_30px_rgba(124,58,237,0.2)]'
     }
@@ -36,10 +36,10 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-            {language === 'en' ? 'Structured creative production.' : 'Producción creativa estructurada.'}
+            {language === 'en' ? 'Frictionless production.' : 'Producción sin fricción.'}
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto">
-            {language === 'en' ? 'A systematic approach to generating high-converting visual assets at scale.' : 'Un enfoque sistemático para generar activos visuales de alta conversión a escala.'}
+            {language === 'en' ? 'A system designed to reduce improvisation and accelerate your visual asset deployment cycles.' : 'Un sistema diseñado para reducir la improvisación y acelerar tus ciclos de despliegue de assets visuales.'}
           </p>
         </div>
 

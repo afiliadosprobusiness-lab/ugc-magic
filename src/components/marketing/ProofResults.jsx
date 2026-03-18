@@ -5,23 +5,23 @@ import { TrendingUp, ShieldCheck } from 'lucide-react';
 import { TestimonialCard } from '../ui/testimonial-cards';
 
 export default function ProofResults() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const testimonials = [
     {
       id: "1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
-      testimonial: t('results.t1.quote', { defaultValue: "We used to spend weeks going back and forth with creators to get the exact tone we wanted. Vyra’s structured direction templates cut our revision cycles to zero." }),
-      author: t('results.t1.author', { defaultValue: "Auren Skin / Creative Director" })
+      testimonial: language === 'en' ? "We used to spend weeks in revisions to get the exact tone. Vyra’s structured guidelines cut revision cycles to zero." : "Solíamos pasar semanas en revisiones para lograr el tono exacto. Las directrices estructuradas de Vyra bajaron los ciclos de revisión a cero.",
+      author: "Auren Skin / Creative Director"
     },
     {
       id: "1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
-      testimonial: t('results.t2.quote', { defaultValue: "Consistent macro shots of jewelry are insanely hard to scale. Vyra lets us set a structural standard that every asset follows automatically." }),
-      author: t('results.t2.author', { defaultValue: "Solis Jewelry / Brand Manager" })
+      testimonial: language === 'en' ? "Coordinating macro-jewelry content was chaotic. Vyra gives us a structural standard that every content block follows automatically." : "Coordinar contenido de macro-joyería era caótico. Vyra nos da un estándar estructural que cada bloque de contenido sigue automáticamente.",
+      author: "Solis Jewelry / Brand Manager"
     },
     {
       id: "1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80",
-      testimonial: t('results.t3.quote', { defaultValue: "We finally have all our references, direction logic, and approved assets in one continuous workflow instead of scattered across Slack." }),
-      author: t('results.t3.author', { defaultValue: "Lumera Beauty / Content Lead" })
+      testimonial: language === 'en' ? "Finally, all our references, direction logic, and locked assets are in one continuous workflow instead of lost in Slack." : "Finalmente, todas nuestras referencias, lógica de dirección y assets cerrados están en un solo flujo de trabajo en lugar de perdidos en Slack.",
+      author: "Lumera Beauty / Content Lead"
     }
   ];
 
@@ -40,7 +40,7 @@ export default function ProofResults() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white max-w-2xl mx-auto">
-            {t('results.title')}
+            {language === 'en' ? <>Less back and forth. <br /> More deployment.</> : <>Menos ida y vuelta. <br /> Más despliegue.</>}
           </h2>
         </div>
 
@@ -68,15 +68,15 @@ export default function ProofResults() {
             <div className="w-full lg:w-1/2 flex flex-col gap-6">
                 <Card className="bg-[#0f1423]/80 backdrop-blur-sm text-white p-8 border-white/10 flex items-center justify-between shadow-xl">
                     <div className="flex flex-col gap-2">
-                        <span className="text-xs font-mono text-gray-400 uppercase tracking-widest leading-none">Average Turnaround</span>
-                        <span className="text-4xl font-bold text-glow-cyan">48 Hours</span>
+                        <span className="text-xs font-mono text-gray-400 uppercase tracking-widest leading-none">{language === 'en' ? 'Avg. Turnaround' : 'Turnaround Promedio'}</span>
+                        <span className="text-4xl font-bold text-glow-cyan">{language === 'en' ? '48 Hours' : '48 Horas'}</span>
                     </div>
                     <TrendingUp className="w-12 h-12 text-glow-cyan opacity-20" />
                 </Card>
                 
                 <Card className="bg-gradient-to-br from-vyra-violet/20 to-[#0f1423] text-white p-8 border-vyra-violet/30 flex items-center justify-between shadow-xl">
                     <div className="flex flex-col gap-2">
-                        <span className="text-xs font-mono text-gray-400 uppercase tracking-widest leading-none">Brand Consistency</span>
+                        <span className="text-xs font-mono text-gray-400 uppercase tracking-widest leading-none">{language === 'en' ? 'Visual Consistency' : 'Consistencia Visual'}</span>
                         <span className="text-4xl font-bold text-white">98.5%</span>
                     </div>
                     <ShieldCheck className="w-12 h-12 text-vyra-violet opacity-30" />
@@ -84,7 +84,7 @@ export default function ProofResults() {
                 
                 <div className="mt-4 p-6 border border-white/5 rounded-2xl bg-white/[0.02]">
                     <p className="text-sm font-mono text-gray-500 leading-relaxed max-w-sm">
-                      Vyra's operating logic guarantees your creative briefs won't get diluted during the production pipeline.
+                      {language === 'en' ? "Vyra's operational logic guarantees your creative briefs won't mutate throughout the production pipeline." : "La lógica operativa de Vyra garantiza que tus briefs creativos no muten a lo largo de la pipeline de producción."}
                     </p>
                 </div>
             </div>

@@ -8,23 +8,23 @@ export default function DashboardPreview() {
   const features = [
     {
       icon: LayoutDashboard,
-      title: language === 'en' ? 'Production Hub' : 'Hub de Producción',
-      desc: language === 'en' ? 'Centralized views for all your ongoing campaigns and requests.' : 'Vistas centralizadas para todas tus campañas y solicitudes en curso.'
+      title: language === 'en' ? 'Production Control' : 'Control de Producción',
+      desc: language === 'en' ? 'Centralized views for all your ongoing campaigns and visual deployments.' : 'Vistas centralizadas para todas tus campañas y despliegues visuales en curso.'
     },
     {
       icon: SlidersHorizontal,
-      title: language === 'en' ? 'Direction Templates' : 'Plantillas de Dirección',
-      desc: language === 'en' ? 'Enforce visual consistency across every single output.' : 'Aplica consistencia visual en cada uno de los resultados.'
+      title: language === 'en' ? 'Visual Standards' : 'Estándares Visuales',
+      desc: language === 'en' ? 'Inject your brand guidelines to enforce consistency in every generated asset.' : 'Inyecta tus directrices de marca para forzar consistencia en cada asset generado.'
     },
     {
       icon: Users2,
-      title: language === 'en' ? 'Creator Matching' : 'Asignación de Creadores',
-      desc: language === 'en' ? 'Algorithmic matching to our vetted network of visual-first creators.' : 'Asignación algorítmica a nuestra red verificada de creadores visual-first.'
+      title: language === 'en' ? 'Verified Network' : 'Red Verificada',
+      desc: language === 'en' ? 'Algorithmic matching to our private network of high-converting, visual-first creators.' : 'Asignación algorítmica a nuestra red privada de creadores visual-first de alta conversión.'
     },
     {
       icon: Database,
-      title: language === 'en' ? 'Visual Vault' : 'Bóveda Visual',
-      desc: language === 'en' ? 'Secure, searchable storage for all your raw features and deliveries.' : 'Almacenamiento seguro y con capacidad de búsqueda para todos tus brutos y entregas.'
+      title: language === 'en' ? 'Asset Vault' : 'Bóveda de Activos',
+      desc: language === 'en' ? 'Interconnected structured storage for all your raw features and final deliverables.' : 'Almacenamiento estructurado interconectado para todos tus brutos y entregables finales.'
     }
   ];
 
@@ -32,12 +32,15 @@ export default function DashboardPreview() {
     <section className="py-32 bg-vyra-black relative z-10 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-sm md:text-base font-mono uppercase tracking-[0.2em] text-glow-cyan font-semibold mb-4">
-            {language === 'en' ? 'THE OPERATING SYSTEM' : 'EL SISTEMA OPERATIVO'}
+          <h2 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-glow-cyan font-semibold mb-4">
+            {language === 'en' ? 'THE SYSTEM IN DETAIL' : 'EL SISTEMA EN DETALLE'}
           </h2>
-          <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-            {language === 'en' ? 'Platform Features' : 'Funciones de la Plataforma'}
+          <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
+            {language === 'en' ? 'The Operating Layer.' : 'La Capa Operativa.'}
           </h3>
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            {language === 'en' ? 'The precise modules that structure your visual production.' : 'Los módulos precisos que estructuran tu producción visual.'}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

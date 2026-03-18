@@ -1,61 +1,62 @@
-import React from "react"
-import { useLocation, Link } from "react-router-dom"
-import { LayoutDashboard, FileText, Image as ImageIcon, Sparkles, Users, CreditCard, Settings } from "lucide-react"
-
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { LayoutDashboard, LibraryBig, Settings2, Sparkles, Video } from 'lucide-react'
+import { useVyraApp } from '../../contexts/VyraAppContext'
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarHeader,
-} from "../blocks/sidebar"
+} from '../blocks/sidebar'
 
 const navItems = [
-  { title: "Dashboard", url: "/app", icon: LayoutDashboard },
-  { title: "Requests", url: "/app/requests", icon: FileText },
-  { title: "Assets", url: "/app/assets", icon: ImageIcon },
-  { title: "Creative Direction", url: "/app/direction", icon: Sparkles },
-  { title: "Creator Profiles", url: "/app/creators", icon: Users },
-  { title: "Plans", url: "/app/plans", icon: CreditCard },
-  { title: "Settings", url: "/app/settings", icon: Settings },
+  { title: 'Overview', url: '/app/overview', icon: LayoutDashboard },
+  { title: 'Angle Engine', url: '/app/angles', icon: Sparkles },
+  { title: 'UGC Creator', url: '/app/ugc', icon: Video },
+  { title: 'Library', url: '/app/library', icon: LibraryBig },
+  { title: 'Settings', url: '/app/settings', icon: Settings2 },
 ]
 
 export function VyraAppSidebar() {
   const location = useLocation()
-  
+  const { activeBrand } = useVyraApp()
+
   return (
-    <Sidebar variant="sidebar" className="border-r border-white/5 bg-vyra-black text-white">
-      <SidebarHeader className="pt-6 pb-4 px-6">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-glow-cyan flex items-center justify-center shadow-[0_0_15px_rgba(0,184,255,0.4)]">
-            <span className="font-bold text-vyra-black text-xl">V</span>
+    <Sidebar variant="sidebar" className="border-r border-white/5 bg-[#07101D] text-white">
+      <SidebarHeader className="px-6 pb-5 pt-6">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-lg font-semibold text-white">
+            V
           </div>
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-            STUDIO
-          </span>
-        </div>
+          <div>
+            <div className="text-lg font-semibold tracking-tight text-white">Vyra</div>
+            <div className="text-xs uppercase tracking-[0.24em] text-white/35">Creative workflow</div>
+          </div>
+        </Link>
       </SidebarHeader>
-      
+
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-white/40 uppercase tracking-widest text-xs mb-2">Production</SidebarGroupLabel>
+          <SidebarGroupLabel className="mb-2 px-4 text-[11px] uppercase tracking-[0.24em] text-white/30">
+            Platform
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {navItems.map((item) => {
-                const isActive = item.url === '/app' 
-                  ? location.pathname === '/app' || location.pathname === '/app/'
-                  : location.pathname.startsWith(item.url);
-                  
+                const isActive = location.pathname === item.url
+                const Icon = item.icon
+
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
                       <Link to={item.url} className="flex items-center gap-3">
-                        <item.icon className={`h-5 w-5 ${isActive ? 'text-glow-cyan drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]' : 'text-white/60'}`} />
-                        <span className={isActive ? 'font-semibold text-white' : 'font-medium text-white/70 hover:text-white'}>
+                        <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'text-white/45'}`} />
+                        <span className={`${isActive ? 'text-white' : 'text-white/65'} font-medium`}>
                           {item.title}
                         </span>
                       </Link>
@@ -66,6 +67,14 @@ export function VyraAppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        <div className="mt-auto px-4 pb-4">
+          <div className="rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-white/35">Active brand</div>
+            <div className="mt-3 text-sm font-semibold text-white">{activeBrand.name}</div>
+            <div className="mt-1 text-sm leading-relaxed text-white/45">{activeBrand.workspaceTag}</div>
+          </div>
+        </div>
       </SidebarContent>
     </Sidebar>
   )
