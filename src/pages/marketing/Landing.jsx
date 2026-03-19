@@ -2,9 +2,7 @@ import React from 'react';
 import Navbar from '../../components/marketing/Navbar';
 import Hero from '../../components/marketing/Hero';
 import SocialProof from '../../components/marketing/SocialProof';
-import PainSection from '../../components/marketing/PainSection';
-import Features from '../../components/marketing/Features';
-import HowItWorks from '../../components/marketing/HowItWorks';
+import AboutUsSection from '../../components/ui/about-us-section';
 import Benefits from '../../components/marketing/Benefits';
 import TargetedUseCases from '../../components/marketing/TargetedUseCases';
 import WhatVyraReplaces from '../../components/marketing/WhatVyraReplaces';
@@ -21,9 +19,7 @@ export default function Landing() {
       <main>
         <Hero />
         <SocialProof />
-        <PainSection />
-        <Features />
-        <HowItWorks />
+        <AboutUsSection />
         <Benefits />
         <TargetedUseCases />
         <WhatVyraReplaces />
