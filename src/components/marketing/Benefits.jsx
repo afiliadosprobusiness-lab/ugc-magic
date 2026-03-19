@@ -27,7 +27,7 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="bg-vyra-black relative z-20 py-32 overflow-hidden border-b border-white/5">
+    <section id="benefits" className="bg-vyra-black relative z-20 py-32 overflow-hidden border-b border-white/5">
        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-glow-cyan/5 blur-[120px] rounded-full pointer-events-none" />
 
        <div className="max-w-7xl mx-auto px-6 relative z-10">

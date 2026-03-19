@@ -29,7 +29,7 @@ export default function DashboardPreview() {
   ];
 
   return (
-    <section className="py-32 bg-vyra-black relative z-10 border-b border-white/5">
+    <section id="premium" className="py-32 bg-vyra-black relative z-10 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-glow-cyan font-semibold mb-4">

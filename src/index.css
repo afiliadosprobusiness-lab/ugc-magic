@@ -10,13 +10,28 @@
     --vyra-black: #0B1020;
     --ice-white: #F8FAFC;
     --glow-cyan: #22D3EE;
+
+    --background: hsl(222, 94%, 5%); /* Defaulting the auth background to dark to match screenshots */
+    --foreground: hsl(0, 0%, 100%);
+    --skeleton: hsl(218, 36%, 16%);
+    --border: hsl(220, 20%, 90%);
+    --btn-border: hsl(217deg, 32.6%, 17.5%);
+    --input: hsl(219, 63%, 16%);
+    
+    --radius: 0.5rem;
   }
 
   body {
     @apply bg-ice-white text-vyra-black font-sans antialiased overflow-x-hidden;
-    /* Soft premium text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .g-button {
+    @apply rounded-[var(--radius)] border;
+    border-color: var(--btn-border)
   }
 }
 

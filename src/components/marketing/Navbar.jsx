@@ -4,7 +4,7 @@ import { Menu, X, Globe, User, Sparkles, Layers, CreditCard, Crown, TrendingUp }
 import { useLanguage } from '../../contexts/LanguageContext';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/Button';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();

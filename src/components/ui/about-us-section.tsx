@@ -123,7 +123,7 @@ export default function AboutUsSection() {
 
   return (
     <section
-      id="about-section"
+      id="how-it-works"
       ref={sectionRef}
       className="w-full py-24 px-4 bg-vyra-black text-white overflow-hidden relative border-b border-white/5"
     >
