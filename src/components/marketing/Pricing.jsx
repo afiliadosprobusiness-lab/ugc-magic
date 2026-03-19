@@ -8,34 +8,34 @@ export default function Pricing() {
   const myPricingPlans = [
     { 
       planName: language === 'en' ? 'Starter' : 'Starter', 
-      description: language === 'en' ? 'Launch your first creative batch' : 'Lanza tu primer set creativo', 
+      description: language === 'en' ? 'Launch your first structured creative flow' : 'Inicia tu primer flujo creativo estructurado', 
       price: language === 'en' ? '3 UGC Videos' : '3 Videos UGC', 
       features: language === 'en' ? [
-        "Structured request workflow", 
-        "Basic creative direction", 
-        "Fast turnaround"
+        "Structured visual direction", 
+        "Brand-aligned assets", 
+        "Ready to test"
       ] : [
-        "Workflow de input estructurado", 
-        "Dirección creativa base", 
-        "Turnaround veloz"
+        "Dirección visual estructurada", 
+        "Piezas alineadas a la marca", 
+        "Listos para testear"
       ], 
       buttonText: language === 'en' ? 'Get Started' : 'Comenzar', 
       buttonVariant: 'secondary'
     },
     { 
       planName: language === 'en' ? 'Grow' : 'Grow', 
-      description: language === 'en' ? 'Build your weekly content engine' : 'Construye tu motor semanal de contenido', 
+      description: language === 'en' ? 'Build your weekly variations engine' : 'Construye tu motor de variaciones semanales', 
       price: language === 'en' ? '10 UGC Videos' : '10 Videos UGC', 
       features: language === 'en' ? [
-        "Structured creative direction", 
-        "Predictable variation workflow", 
-        "Designed for weekly output", 
-        "Priority creator matching"
+        "Strict visual alignment", 
+        "Predictable variation flow", 
+        "Designed for weekly campaigns", 
+        "Priority brand matching"
       ] : [
-        "Dirección creativa estructurada", 
-        "Workflow de variaciones predecible", 
-        "Diseñado para output semanal", 
-        "Matching prioritario de creadores"
+        "Alineamiento visual estricto", 
+        "Flujo de variaciones predecible", 
+        "Diseñado para campañas semanales", 
+        "Matching prioritario con la marca"
       ], 
       buttonText: language === 'en' ? 'Deploy Now' : 'Desplegar Ahora', 
       isPopular: true, 
@@ -43,18 +43,18 @@ export default function Pricing() {
     },
     { 
       planName: language === 'en' ? 'Scale' : 'Scale', 
-      description: language === 'en' ? 'Scale your visual production pipeline' : 'Escala tu pipeline de producción visual', 
+      description: language === 'en' ? 'Scale your test volume preserving your identity' : 'Escala el volumen de testeo preservando tu identidad', 
       price: language === 'en' ? '30+ UGC Videos' : '30+ Videos UGC', 
       features: language === 'en' ? [
-        "Built for campaign volume", 
-        "Strict visual consistency logic", 
-        "A/B testing ready assets", 
-        "Dedicated account lead"
+        "Built for heavy campaign volume", 
+        "Uncompromising visual consistency", 
+        "A/B testing ready material", 
+        "Dedicated creative lead"
       ] : [
-        "Construido para volumen de campaña", 
-        "Lógica estricta de consistencia visual", 
-        "Assets listos para testing A/B", 
-        "Lead de cuenta dedicado"
+        "Construido para alto volumen", 
+        "Consistencia visual exigente", 
+        "Material listo para testing A/B", 
+        "Lead creativo dedicado"
       ], 
       buttonText: language === 'en' ? 'Get Started' : 'Comenzar', 
       buttonVariant: 'secondary' 
@@ -81,7 +81,7 @@ export default function Pricing() {
 
   const titleComponent = (
     <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
-      {language === 'en' ? 'Simple plans for structured UGC production.' : 'Planes simples para producción UGC estructurada.'}
+      {language === 'en' ? 'Structure today. Scale tomorrow.' : 'Estructura hoy. Escala mañana.'}
     </h2>
   );
 
@@ -89,7 +89,7 @@ export default function Pricing() {
     <section id="plans">
       <ModernPricingPage
         title={titleComponent}
-        subtitle={language === 'en' ? 'Choose the output level your brand needs today. Scale up to a tailored system when you need more volume, consistency, and structure.' : 'Elige el nivel de output que tu marca necesita hoy. Escala a un sistema a medida cuando necesites más estructura, consistencia y volumen.'}
+        subtitle={language === 'en' ? 'Start with the visual production your campaigns need to test right now. Increase iteration speed only when your brand demands it.' : 'Comienza con la producción visual que tus campañas necesitan probar en este momento. Aumenta la velocidad de iteración únicamente cuando tu marca lo pida.'}
         plans={myPricingPlans}
         showAnimatedBackground={true}
       />

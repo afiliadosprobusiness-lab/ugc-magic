@@ -8,20 +8,20 @@ export default function WhatVyraReplaces() {
 
   const comparisons = [
     {
-      old: language === 'en' ? 'Chaotic Slack/Email Strings' : 'Hilos Caóticos de Email/Slack',
-      vyra: language === 'en' ? 'Structured Production Parameters' : 'Parámetros de Producción Estructurados',
+      old: language === 'en' ? 'Chaotic Revision Threads' : 'Cadenas caóticas de correcciones',
+      vyra: language === 'en' ? 'Clear, Centralized Visual Direction' : 'Dirección visual clara y centralizada',
     },
     {
-      old: language === 'en' ? 'Messy Google Drive Folders' : 'Carpetas Desordenadas de Drive',
-      vyra: language === 'en' ? 'Centralized Visual Vault' : 'Bóveda Visual Centralizada',
+      old: language === 'en' ? 'Ambiguous & Misinterpreted Briefs' : 'Briefs ambiguos y malinterpretados',
+      vyra: language === 'en' ? 'Well-defined Execution Guidelines' : 'Pautas de ejecución bien definidas',
     },
     {
-      old: language === 'en' ? 'Random Unpredictable Creators' : 'Creadores Aleatorios e Impredecibles',
-      vyra: language === 'en' ? 'Vetted Network matched to Brand Tone' : 'Red Verificada adaptada al Tono de Marca',
+      old: language === 'en' ? 'Inconsistent Results Per Delivery' : 'Resultados que varían en cada entrega',
+      vyra: language === 'en' ? 'Constant Brand Consistency' : 'Consistencia de marca constante',
     },
     {
-      old: language === 'en' ? 'Endless Revision Cycles' : 'Ciclos Interminables de Revisión',
-      vyra: language === 'en' ? 'Guaranteed Output Consistency' : 'Consistencia Garantizada',
+      old: language === 'en' ? 'Hundreds of Hurdles to Test Variations' : 'Cientos de trabas para probar variaciones',
+      vyra: language === 'en' ? 'Creative Speed for Campaign Iteration' : 'Velocidad creativa para iterar campañas',
     }
   ];
 
@@ -36,7 +36,7 @@ export default function WhatVyraReplaces() {
              {language === 'en' ? 'THE OLD WAY' : 'LA VIEJA FORMA'}
            </h2>
            <h3 className="text-3xl md:text-4xl lg:text-6xl font-black tracking-tight text-white/90">
-             {language === 'en' ? 'Operating' : 'Operando'} <br /> <span className="text-red-400 line-through decoration-2 decoration-red-500/50">{language === 'en' ? 'Blind' : 'a Ciegas'}</span>
+             {language === 'en' ? 'Creative' : 'Estrés'} <br /> <span className="text-red-400 line-through decoration-2 decoration-red-500/50">{language === 'en' ? 'Chaos' : 'Creativo'}</span>
            </h3>
          </div>
 
@@ -65,7 +65,7 @@ export default function WhatVyraReplaces() {
              THE VYRA WAY
            </h2>
            <h3 className="text-3xl md:text-4xl lg:text-6xl font-black tracking-tight text-white mb-4 md:mb-6">
-             {language === 'en' ? 'Flawless' : 'Ejecución'} <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-glow-cyan to-vyra-violet">{language === 'en' ? 'Execution' : 'Perfecta'}</span>
+             {language === 'en' ? 'Structured' : 'Producción'} <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-glow-cyan to-vyra-violet">{language === 'en' ? 'Production' : 'Profesional'}</span>
            </h3>
          </div>
 

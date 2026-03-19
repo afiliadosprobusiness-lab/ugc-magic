@@ -18,15 +18,15 @@ export default function PainSection() {
             {language === 'en' ? 'CREATIVE OPERATION' : 'OPERACIÓN CREATIVA'}
           </h2>
           <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-8">
-            {language === 'en' ? 'Consistency cannot be' : 'La consistencia no se'} <br className="hidden md:block"/>
+            {language === 'en' ? 'Brand consistency cannot be' : 'La estética de tu marca no puede'} <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-glow-cyan to-vyra-violet italic font-medium">
-              {language === 'en' ? 'improvised.' : 'improvisa.'}
+              {language === 'en' ? 'left to chance.' : 'dejarse al azar.'}
             </span>
           </h3>
           <p className="text-white/50 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
             {language === 'en' 
-              ? 'Vyra turns loose references and ambiguous briefs into a clear system to produce content with direction, consistency, and speed.' 
-              : 'Vyra convierte referencias sueltas y briefs ambiguos en un sistema claro para producir contenido con dirección, consistencia y velocidad.'}
+              ? 'Passing vague briefs over Slack and hoping for the best delays campaigns. Messy creative production dilutes your identity.' 
+              : 'Pasar briefs vagos por Slack y cruzar los dedos, frena tu crecimiento. La producción creativa desordenada diluye tu identidad visual y retrasa la salida de tus campañas.'}
           </p>
         </div>
 
@@ -55,10 +55,10 @@ export default function PainSection() {
 
               <div className="space-y-6 flex-grow mb-16">
                 {[
-                  language === 'en' ? 'Briefs that change constantly.' : 'Briefs que cambian constantemente.',
-                  language === 'en' ? 'References that are routinely ignored.' : 'Referencias que no se respetan.',
-                  language === 'en' ? 'Creators interpreting each piece differently.' : 'Creadores interpretando distinto cada pieza.',
-                  language === 'en' ? 'More revisions, less visual consistency.' : 'Más revisiones, menos consistencia.'
+                  language === 'en' ? 'Ambiguous briefs lost in execution.' : 'Briefs ambiguos que se pierden en la ejecución.',
+                  language === 'en' ? 'Fragmented visual direction throughout the process.' : 'Dirección visual fragmentada a lo largo del proceso.',
+                  language === 'en' ? 'Constant revisions to correct the same tone.' : 'Revisiones constantes para corregir siempre el mismo tono.',
+                  language === 'en' ? 'Struggling to scale speed without affecting style.' : 'Dificultad para ganar velocidad sin afectar el estilo.'
                 ].map((text, i) => (
                   <div key={i} className="flex gap-4 opacity-40 transition-opacity duration-300 group-hover:opacity-60 items-start">
                     <XCircle className="w-5 h-5 text-red-500/40 shrink-0" />
@@ -99,10 +99,10 @@ export default function PainSection() {
 
               <div className="space-y-6 flex-grow mb-16">
                 {[
-                  language === 'en' ? 'References locked from the start.' : 'Referencias organizadas desde el inicio.',
-                  language === 'en' ? 'Clear, repeatable direction logic.' : 'Dirección clara y repetible.',
-                  language === 'en' ? 'Output aligned 100% with the brand.' : 'Output alineado 100% con la marca.',
-                  language === 'en' ? 'Faster, highly consistent production.' : 'Producción más rápida y consistente.'
+                  language === 'en' ? 'Shared and respected references from day one.' : 'Referencias compartidas y respetadas desde el primer día.',
+                  language === 'en' ? 'Clear, structured, and repeatable visual direction.' : 'Dirección visual clara, estructurada y repetible.',
+                  language === 'en' ? 'Assets faithfully aligned to your exact brand tone.' : 'Piezas fieles y alineadas al tono exacto de tu marca.',
+                  language === 'en' ? 'Agile production ready to iterate and launch.' : 'Producción ágil, lista para iterar y lanzar sin dudas.'
                 ].map((text, i) => (
                   <div key={i} className="flex gap-4 items-start transition-transform duration-300 group-hover:translate-x-1" style={{ transitionDelay: `${i * 50}ms` }}>
                     <CheckCircle2 className="w-5 h-5 text-glow-cyan shrink-0" />
@@ -142,9 +142,9 @@ export default function PainSection() {
 
         {/* MICROCOPY FINAL */}
         <div className="text-center mt-20 max-w-xl mx-auto flex flex-wrap items-center justify-center gap-3 text-sm md:text-base font-medium text-white/40">
-          <span>{language === 'en' ? 'More clarity in requests.' : 'Más claridad al pedir.'}</span>
+          <span>{language === 'en' ? 'Less creative chaos.' : 'Menos caos creativo.'}</span>
           <ArrowRight className="w-4 h-4 text-glow-cyan/50 hidden md:block" />
-          <span className="text-white/90">{language === 'en' ? 'More consistency in production.' : 'Más consistencia al producir.'}</span>
+          <span className="text-white/90">{language === 'en' ? 'More ready-to-launch assets.' : 'Más piezas listas para lanzar.'}</span>
         </div>
 
       </div>

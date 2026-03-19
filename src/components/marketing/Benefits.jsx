@@ -7,20 +7,20 @@ export default function Benefits() {
 
   const benefits = [
     {
-      title: language === 'en' ? 'Multiply volume with control' : 'Multiplica volumen con control',
-      desc: language === 'en' ? 'Stop chasing creators. Scale your visual variations month over month without scaling your internal team\'s workload.' : 'Deja de perseguir creadores. Escala tus variaciones visuales mes a mes sin escalar la carga operativa de tu equipo interno.',
+      title: language === 'en' ? 'Multiply volume with precision' : 'Multiplica volumen con precisión',
+      desc: language === 'en' ? 'Scale your visual production without scaling your team\'s workload or tracking down creators.' : 'Escala tu producción visual sin aumentar la carga operativa de tu equipo ni perseguir creadores.',
       icon: BatteryCharging,
       color: 'text-glow-cyan'
     },
     {
-      title: language === 'en' ? 'Zero brand deviation' : 'Cero desviación de marca',
-      desc: language === 'en' ? 'We guarantee strict alignment with the initial brief. Iterations due to creative concept loss drop drastically.' : 'Garantizamos alineamiento estricto con el brief inicial. Las iteraciones por pérdida de concepto creativo se reducen drásticamente.',
+      title: language === 'en' ? 'Brand consistency' : 'Consistencia inalterable',
+      desc: language === 'en' ? 'We secure alignment with the initial brief. Manual corrections due to creative concept loss drop drastically.' : 'Cuidamos el alineamiento con el brief inicial. Las correcciones manuales por pérdida de visión se reducen drásticamente.',
       icon: CheckCircle2,
       color: 'text-electric-blue'
     },
     {
-      title: language === 'en' ? 'Predictable operations' : 'Operativa predecible',
-      desc: language === 'en' ? 'Vetted creators and closed workflows. Move from an artisanal creative process to a structured production chain.' : 'Creadores verificados y flujos de trabajo cerrados. Pasa de un proceso creativo artesanal a una cadena de producción estructurada.',
+      title: language === 'en' ? 'Structured operations' : 'Operativa clara y estructurada',
+      desc: language === 'en' ? 'Elevate from an artisanal creative process to a reliable production protocol.' : 'Pasa de un proceso creativo disperso y artesanal a un protocolo de producción confiable.',
       icon: ShieldAlert,
       color: 'text-vyra-violet'
     }

@@ -18,15 +18,15 @@ export default function Features() {
             {language === 'en' ? 'HOW IT WORKS' : 'CÓMO FUNCIONA'}
           </h2>
           <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-8">
-            {language === 'en' ? 'From loose references to' : 'De referencias sueltas a'} <br className="hidden md:block"/>
+            {language === 'en' ? 'From reference to campaign-ready' : 'De la referencia a la pieza'} <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-vyra-violet to-glow-cyan">
-              {language === 'en' ? 'consistent production.' : 'producción consistente.'}
+              {language === 'en' ? 'assets.' : 'lista para campaña.'}
             </span>
           </h3>
           <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
             {language === 'en' 
-              ? 'Vyra turns simple inputs into a clear system to produce content with direction, consistency, and speed.' 
-              : 'Vyra convierte inputs simples en un sistema claro para producir contenido con dirección, consistencia y velocidad.'}
+              ? 'A serious workflow designed to protect your visual identity and accelerate your creative production.' 
+              : 'Un flujo serio diseñado para cuidar la identidad visual de tu marca y acelerar la producción de tus creatividades.'}
           </p>
         </div>
 
@@ -49,10 +49,10 @@ export default function Features() {
                 </div>
                 
                 <h4 className="text-2xl font-bold text-white mb-3">
-                  {language === 'en' ? 'Clear inputs from the start' : 'Inputs claros desde el inicio'}
+                  {language === 'en' ? 'Define Your Standard' : 'Define tu estándar'}
                 </h4>
                 <p className="text-white/50 text-sm mb-10 min-h-[60px]">
-                  {language === 'en' ? 'Upload simple references and define the context without ambiguity.' : 'Sube referencias simples y define el contexto sin ambigüedad.'}
+                  {language === 'en' ? 'Upload key references and establish the essential aesthetic details that give life to your brand.' : 'Sube tus referencias clave y establece los detalles estéticos esenciales que dan vida a tu marca.'}
                 </p>
 
                 {/* UI Box 1 */}
@@ -87,10 +87,10 @@ export default function Features() {
                 </div>
                 
                 <h4 className="text-2xl font-bold text-white mb-3">
-                  {language === 'en' ? 'Direction that doesn\'t warp' : 'Dirección que no se deforma'}
+                  {language === 'en' ? 'Structured Direction' : 'Dirección estructurada'}
                 </h4>
                 <p className="text-white/50 text-sm mb-10 min-h-[60px]">
-                  {language === 'en' ? 'The system structures creative decisions to maintain consistency.' : 'El sistema estructura decisiones creativas para mantener consistencia visual.'}
+                  {language === 'en' ? 'Vyra organizes the workflow to reflect your brief. We maintain aesthetic consistency from the moment of capture, reducing manual corrections.' : 'Vyra organiza el flujo para que cada detalle refleje tu brief. Cuidamos la consistencia estética desde la captura, reduciendo correcciones manuales.'}
                 </p>
 
                 {/* UI Box 2 */}
@@ -124,10 +124,10 @@ export default function Features() {
                 </div>
                 
                 <h4 className="text-2xl font-bold text-white mb-3">
-                  {language === 'en' ? 'Output ready to use' : 'Output listo para usar'}
+                  {language === 'en' ? 'Ready to Iterate' : 'Listos para iterar'}
                 </h4>
                 <p className="text-white/50 text-sm mb-10 min-h-[60px]">
-                  {language === 'en' ? 'Receive content aligned with your brand, ready to test, iterate, and scale.' : 'Recibe contenido alineado con tu marca, listo para probar, iterar y escalar.'}
+                  {language === 'en' ? 'Receive UGC production variations aligned with your standards, packaged and ready to scale your campaigns.' : 'Recibe variaciones de producción UGC alineadas con tus pautas, empaquetadas y listas para escalar tus campañas.'}
                 </p>
 
                 {/* UI Box 3 */}
@@ -156,9 +156,9 @@ export default function Features() {
 
         {/* Microcopy final */}
         <div className="text-center mt-24 max-w-xl mx-auto flex flex-wrap items-center justify-center gap-3 text-sm md:text-base font-medium text-white/40">
-          <span>{language === 'en' ? 'Less interpretation.' : 'Menos interpretación.'}</span>
+          <span>{language === 'en' ? 'Less creative friction.' : 'Menos fricción creativa.'}</span>
           <ArrowRight className="w-4 h-4 text-glow-cyan/50 hidden md:block" />
-          <span className="text-white/90">{language === 'en' ? 'More execution.' : 'Más ejecución.'}</span>
+          <span className="text-white/90">{language === 'en' ? 'More capacity to iterate.' : 'Más capacidad para iterar.'}</span>
         </div>
 
       </div>

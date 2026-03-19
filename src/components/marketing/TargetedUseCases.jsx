@@ -9,44 +9,44 @@ export default function TargetedUseCases() {
   const useCases = [
     {
       id: 'beauty',
-      label: language === 'en' ? 'For Beauty' : 'Para Belleza',
+      label: language === 'en' ? 'Beauty & Skincare' : 'Beauty & Skincare',
       image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=800',
       points: language === 'en' ? [
-        'Macro texture shots for serums and creams.',
-        'Before/after split screen templates.',
-        'Skincare routine integrations.'
+        'Flawless coherence in macro texture shots.',
+        'Careful clinical lighting parameters.',
+        'Structured frames for product application.'
       ] : [
-        'Tomas macro de texturas para sueros y cremas.',
-        'Plantillas de pantalla dividida de antes/después.',
-        'Integraciones en rutinas de skincare.'
+        'Coherencia en texturas macro.',
+        'Atención estricta en la iluminación correcta.',
+        'Encuadres de aplicación estructurados.'
       ]
     },
     {
       id: 'jewelry',
-      label: language === 'en' ? 'For Jewelry' : 'Para Joyería',
+      label: language === 'en' ? 'Fine Jewelry' : 'Joyería Fina',
       image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800',
       points: language === 'en' ? [
-        'Strict lighting requirements for maximum sparkle.',
-        'On-model styling guidelines.',
-        'Unboxing and detail pan shots.'
+        'Meticulous focus on light reflections.',
+        'Stable, high-definition detail pans.',
+        'Impeccable product styling on model.'
       ] : [
-        'Requisitos estrictos de iluminación para máximo brillo.',
-        'Directrices de estilo en modelo.',
-        'Tomas de unboxing y panorámicas de detalles.'
+        'Enfoque meticuloso en los reflejos de luz.',
+        'Paneos estables de micro-detalle.',
+        'Estilismo de producto impecable.'
       ]
     },
     {
       id: 'fashion',
-      label: language === 'en' ? 'For Fashion' : 'Para Moda',
+      label: language === 'en' ? 'Fashion & Apparel' : 'Moda & Accesorios',
       image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=800',
       points: language === 'en' ? [
-        'GRWM (Get Ready With Me) structured flows.',
-        'Fit and fabric close-ups.',
-        'Trend-aligned aesthetic matching.'
+        'Constant care for garment drop and fit.',
+        'Full frame composition in motion.',
+        'Aesthetic match with your brand lookbook.'
       ] : [
-        'Flujos estructurados GRWM (Get Ready With Me).',
-        'Acercamientos de ajuste y tela.',
-        'Coincidencia estética alineada con tendencias.'
+        'Cuidado constante en la caída de la prenda (fit).',
+        'Encuadre total en movimiento.',
+        'Concordancia estética con tu lookbook.'
       ]
     }
   ];
@@ -59,7 +59,7 @@ export default function TargetedUseCases() {
         
         <div className="text-center mb-16">
           <h2 className="text-xl md:text-3xl font-medium tracking-tight text-white/50 mb-2">
-            {language === 'en' ? 'Built for your vertical' : 'Construido para tu vertical'}
+            {language === 'en' ? 'Designed for brands that care about every detail' : 'Pensado para marcas que cuidan cada detalle'}
           </h2>
         </div>
 

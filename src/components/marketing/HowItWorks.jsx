@@ -8,22 +8,22 @@ export default function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: language === 'en' ? 'The Input' : 'El Input',
-      desc: language === 'en' ? 'Upload visual references, set demographics, and lock brand guidelines in a structured format.' : 'Sube referencias visuales, establece demografía y fija guías de marca en un formato estructurado.',
+      title: language === 'en' ? 'Define Your Standard' : 'Define tu estándar',
+      desc: language === 'en' ? 'Upload key references and establish the essential aesthetic details that give life to your brand.' : 'Sube tus referencias clave y establece los detalles estéticos esenciales que dan vida a tu marca.',
       icon: Layers,
       color: 'border-white/10'
     },
     {
       num: '02',
-      title: language === 'en' ? 'The System' : 'El Sistema',
-      desc: language === 'en' ? 'Our engine matches verified creators and enforces strict visual consistency without micro-management.' : 'Nuestro motor asigna creadores verificados y fuerza una estricta consistencia visual sin necesidad de micro-management.',
+      title: language === 'en' ? 'Structured Direction' : 'Dirección estructurada',
+      desc: language === 'en' ? 'Vyra organizes the workflow to reflect your brief. We maintain aesthetic consistency from the moment of capture.' : 'Vyra organiza el flujo para que cada detalle refleje tu brief. Cuidamos la consistencia estética desde la captura.',
       icon: Crosshair,
       color: 'border-glow-cyan/50 shadow-[0_0_30px_rgba(34,211,238,0.2)]'
     },
     {
       num: '03',
-      title: language === 'en' ? 'The Output' : 'El Despliegue',
-      desc: language === 'en' ? 'Receive variations ready for ad deployment in under 72 hours.' : 'Recibe variaciones listas para pauta publicitaria en menos de 72 horas.',
+      title: language === 'en' ? 'Ready to Iterate' : 'Listos para iterar',
+      desc: language === 'en' ? 'Receive UGC production variations aligned with your standards, packaged and ready to scale your campaigns.' : 'Recibe variaciones de producción UGC alineadas con tus pautas, empaquetadas y listas para escalar tus campañas.',
       icon: Zap,
       color: 'border-vyra-violet/50 shadow-[0_0_30px_rgba(124,58,237,0.2)]'
     }
@@ -36,10 +36,10 @@ export default function HowItWorks() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-            {language === 'en' ? 'Frictionless production.' : 'Producción sin fricción.'}
+            {language === 'en' ? 'From reference to campaign-ready.' : 'De la referencia a la pieza lista para campaña.'}
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto">
-            {language === 'en' ? 'A system designed to reduce improvisation and accelerate your visual asset deployment cycles.' : 'Un sistema diseñado para reducir la improvisación y acelerar tus ciclos de despliegue de assets visuales.'}
+            {language === 'en' ? 'A serious workflow designed to protect your visual identity and accelerate your creative production.' : 'Un flujo serio diseñado para cuidar la identidad visual de tu marca y acelerar la producción de tus creatividades.'}
           </p>
         </div>
 
